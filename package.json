@@ -1,0 +1,23 @@
+{
+  "name": "myTrip",
+  "version": "1.0.0",
+  "description": "Travel Planning App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "yarn --cwd client start",
+    "dev": "concurrently \"yarn run client\" \"yarn run server\"",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  },
+  "repository": "https://github.com/mlegrange15/myTrip.git",
+  "author": "Michael LeGrange <mlegrange15@att.net>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.4",
+    "nodemon": "^1.18.4"
+  }
+}
