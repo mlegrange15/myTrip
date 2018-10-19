@@ -9,7 +9,7 @@ import Main from "./components/Main";
 class App extends Component {
   state = {
     destination: {
-      name: "Rome",
+      name: "Rome"
     }
   };
   render() {
@@ -18,7 +18,10 @@ class App extends Component {
         <div className="App">
           <AppNavbar />
           <Destinations />
-          <Main name={this.state.destination.name}/>
+          <Route
+            path="/planner"
+            render={props => <Main {...props} name={this.props.name} />}
+          />{" "}
         </div>
       </Router>
     );

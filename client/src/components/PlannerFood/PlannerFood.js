@@ -14,7 +14,6 @@ class PlannerFood
   state = {};
   render() {
     return (
-      <Col sm="9">
         <Card className="mb-3">
           <CardImg
             top
@@ -34,7 +33,6 @@ class PlannerFood
             </CardText>
           </CardBody>
         </Card>
-      </Col>
     );
   }
 }

@@ -14,7 +14,6 @@ class Notepad extends Component {
   state = {};
   render() {
     return (
-      <Col sm="3">
         <Card className="bg-dark">
           <CardBody>
             <CardTitle className="text-white">
@@ -33,7 +32,6 @@ class Notepad extends Component {
           </CardBody>
           <Button className="ml-auto">Button</Button>
         </Card>
-      </Col>
     );
   }
 }
