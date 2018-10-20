@@ -17,7 +17,7 @@ class TripOptions extends Component {
     return (
       <Container className="mb-3">
         <Row>
-          <Col sm="3">
+          <Col sm="2">
             <Card inverse>
               <CardImg
                 width="100%"
@@ -29,7 +29,7 @@ class TripOptions extends Component {
               </CardImgOverlay>
             </Card>
           </Col>
-          <Col sm="3">
+          <Col sm="2">
             <Card inverse>
               <CardImg
                 width="100%"
@@ -41,7 +41,7 @@ class TripOptions extends Component {
               </CardImgOverlay>
             </Card>
           </Col>
-          <Col sm="3">
+          <Col sm="2">
             <Card inverse>
               <CardImg
                 width="100%"
@@ -53,7 +53,7 @@ class TripOptions extends Component {
               </CardImgOverlay>
             </Card>
           </Col>
-          <Col sm="3">
+          <Col sm="2">
             <Card inverse>
               <CardImg
                 width="100%"
@@ -62,6 +62,30 @@ class TripOptions extends Component {
               />
               <CardImgOverlay>
                 <CardTitle>Tours</CardTitle>
+              </CardImgOverlay>
+            </Card>
+          </Col>
+          <Col sm="2">
+            <Card inverse>
+              <CardImg
+                width="100%"
+                src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
+                alt="Card image cap"
+              />
+              <CardImgOverlay>
+                <CardTitle>Flights</CardTitle>
+              </CardImgOverlay>
+            </Card>
+          </Col>
+          <Col sm="2">
+            <Card inverse>
+              <CardImg
+                width="100%"
+                src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
+                alt="Card image cap"
+              />
+              <CardImgOverlay>
+                <CardTitle>Car</CardTitle>
               </CardImgOverlay>
             </Card>
           </Col>

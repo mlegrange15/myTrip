@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Col,
   Card,
   CardImg,
   CardBody,
@@ -13,7 +12,6 @@ class PlannerHotels extends Component {
   state = {};
   render() {
     return (
-      <Col sm="9">
         <Card className="mb-3">
           <CardImg
             top
@@ -33,7 +31,6 @@ class PlannerHotels extends Component {
             </CardText>
           </CardBody>
         </Card>
-      </Col>
     );
   }
 }

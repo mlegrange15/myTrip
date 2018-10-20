@@ -20,7 +20,7 @@ class Main extends Component {
             render={props => (
               <Row>
                 <Col sm="9">
-                  <PlannerFood {...props} name={this.props.name} />
+                  <PlannerHotels {...props} name={this.props.name} />
                 </Col>
                 <Col sm="3">
                   <Notepad {...props} name={this.props.name} />
@@ -33,7 +33,7 @@ class Main extends Component {
             render={props => (
               <Row>
                 <Col sm="9">
-                  <PlannerFood {...props} name={this.props.name} />
+                  <PlannerEvents {...props} name={this.props.name} />
                 </Col>
                 <Col sm="3">
                   <Notepad {...props} name={this.props.name} />
