@@ -13,10 +13,14 @@ router.get('/', (req, res) => {
 // POST api/destinations Post an Destination
 router.post('/', (req, res) => {
     const newDestination = new Destination({
+        _id: req.body._id,
         name: req.body.name,
         description: req.body.description,
         images: req.body.images,
         hotels: req.body.hotels,
+        events: req.body.events,
+        food: req.body.food,
+        tours: req.body.tours,
     });
     newDestination.save().then(destination => res.json(destination))
 });

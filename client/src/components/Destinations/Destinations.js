@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 import {
   Card,
   CardImg,
@@ -14,36 +15,60 @@ import {
 } from "reactstrap";
 
 class Destinations extends Component {
-  state = {};
+  state = {
+    destinations: {},
+
+    test: [
+      {
+        one: "one"
+      },
+      {
+        two: "two"
+      }
+    ]
+  };
+
+  componentDidMount() {
+    console.log(this.state.test[1].two);
+    console.log(this.state.test);
+    
+    // grab all the destinations from the db, set state and then populate the featured destinations component.
+    API.getDestinations({})
+      .then(res => {
+        this.setState({ destinations: res.data });
+        console.log(this.state.destinations);
+        console.log(this.state.destinations[1].name);
+      })
+      .catch(err => console.log(err));
+  }
   render() {
+    // const destination = this.state.destinations;
+
     return (
       <Jumbotron className="bg-dark" fluid>
         <Container fluid>
           <Row className="text-center text-white mb-4">
-          <Col>
-            <h1 className="display-3">Featured Destinations</h1>
-            <p className="lead">
-              Click on a destination below to begin planning your trip!
-            </p>
+            <Col>
+              <h1 className="display-3">Featured Destinations</h1>
+              <p className="lead">
+                Click on a destination below to begin planning your trip!
+              </p>
             </Col>
           </Row>
           <Row>
             <Col sm="4">
               <Card className="mb-3">
                 <CardBody>
-                  <CardTitle>Rome</CardTitle>
+                  <CardTitle/>
                 </CardBody>
                 <CardImg
                   width="100%"
                   height="200px"
-                  src="https://travel.usnews.com/static-travel/images/destinations/108/gettyimages-525777231.jpg"
+                  src=""
                   alt="Card image cap"
                 />
                 <CardBody>
-                  <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </CardText>
+                  <CardText />
                   <CardLink href="#">
                     <Button>Start Planning</Button>
                   </CardLink>
@@ -53,7 +78,7 @@ class Destinations extends Component {
             <Col sm="4">
               <Card className="mb-3">
                 <CardBody>
-                  <CardTitle>Paris</CardTitle>
+                  <CardTitle>{this.state.test[1].two}</CardTitle>
                 </CardBody>
                 <CardImg
                   width="100%"
