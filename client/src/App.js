@@ -9,7 +9,9 @@ import API from "./components/utils/API";
 
 class App extends Component {
   state = {
-    destinations: null
+    destinations: null,
+    // id of selected destination 
+    selected: null
   };
 
   componentDidMount() {
@@ -17,10 +19,14 @@ class App extends Component {
     API.getDestinations({})
       .then(res => {
         this.setState({ destinations: res.data });
-        console.log(this.state.destinations);
+        console.log(this.state.destinations[0].name);
       })
       .catch(err => console.log(err));
   }
+
+  // OnClick for the Destination selector ans send it via props to Destinations component
+
+
   render() {
     return (
       <Router>
