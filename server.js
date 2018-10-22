@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const trips = require('./routes/api/trips')
+const destinations = require('./routes/api/destinations')
 
 const app = express();
 
@@ -19,7 +19,7 @@ mongoose.connect(db)
     .catch( error => console.log(error));
 
 // Routes
-app.use('/api/trips', trips);
+app.use('/api/destinations', destinations);
 
 // Serve static assests if in production
 if (process.env.NODE_ENV === 'production') {

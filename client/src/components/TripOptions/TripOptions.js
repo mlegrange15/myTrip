@@ -6,9 +6,7 @@ import {
   Card,
   CardImg,
   CardImgOverlay,
-  CardText,
   CardTitle,
-  Button
 } from "reactstrap";
 
 class TripOptions extends Component {
