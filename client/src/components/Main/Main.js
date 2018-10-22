@@ -20,10 +20,10 @@ class Main extends Component {
             render={props => (
               <Row>
                 <Col sm="9">
-                  <PlannerHotels {...props} name={this.props.name} />
+                  <PlannerHotels {...props} desinations={this.props.desinations} />
                 </Col>
                 <Col sm="3">
-                  <Notepad {...props} name={this.props.name} />
+                  <Notepad {...props} desinations={this.props.desinations} />
                 </Col>
               </Row>
             )}
@@ -33,10 +33,10 @@ class Main extends Component {
             render={props => (
               <Row>
                 <Col sm="9">
-                  <PlannerEvents {...props} name={this.props.name} />
+                  <PlannerEvents {...props} desinations={this.props.desinations} />
                 </Col>
                 <Col sm="3">
-                  <Notepad {...props} name={this.props.name} />
+                  <Notepad {...props} desinations={this.props.desinations} />
                 </Col>
               </Row>
             )}
@@ -47,10 +47,10 @@ class Main extends Component {
             render={props => (
               <Row>
                 <Col sm="9">
-                  <PlannerFood {...props} name={this.props.name} />
+                  <PlannerFood {...props} desinations={this.props.desinations} />
                 </Col>
                 <Col sm="3">
-                  <Notepad {...props} name={this.props.name} />
+                  <Notepad {...props} desinations={this.props.desinations} />
                 </Col>
               </Row>
             )}

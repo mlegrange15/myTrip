@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import API from "../utils/API";
 import {
   Card,
   CardImg,
@@ -15,35 +14,9 @@ import {
 } from "reactstrap";
 
 class Destinations extends Component {
-  state = {
-    destinations: {},
 
-    test: [
-      {
-        one: "one"
-      },
-      {
-        two: "two"
-      }
-    ]
-  };
-
-  componentDidMount() {
-    console.log(this.state.test[1].two);
-    console.log(this.state.test);
-    
-    // grab all the destinations from the db, set state and then populate the featured destinations component.
-    API.getDestinations({})
-      .then(res => {
-        this.setState({ destinations: res.data });
-        console.log(this.state.destinations);
-        console.log(this.state.destinations[1].name);
-      })
-      .catch(err => console.log(err));
-  }
   render() {
-    // const destination = this.state.destinations;
-
+    console.log(this.props.destinations);
     return (
       <Jumbotron className="bg-dark" fluid>
         <Container fluid>
@@ -59,7 +32,7 @@ class Destinations extends Component {
             <Col sm="4">
               <Card className="mb-3">
                 <CardBody>
-                  <CardTitle/>
+                  <CardTitle></CardTitle>
                 </CardBody>
                 <CardImg
                   width="100%"
@@ -78,7 +51,7 @@ class Destinations extends Component {
             <Col sm="4">
               <Card className="mb-3">
                 <CardBody>
-                  <CardTitle>{this.state.test[1].two}</CardTitle>
+                  <CardTitle>Paris</CardTitle>
                 </CardBody>
                 <CardImg
                   width="100%"
