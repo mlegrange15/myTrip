@@ -10,11 +10,12 @@ import {
   Row
 } from "reactstrap";
 import Notepad from "../Notepad";
+import PlannerImageCard from "../PlannerImageCard";
 
-class PlannerHotels extends Component {
+class Planner extends Component {
   state = {};
   render() {
-    console.log(this.props.category[0]);
+    console.log(this.props.category);
 
     return (
       <Row className="mt-3">
@@ -28,24 +29,23 @@ class PlannerHotels extends Component {
               alt="Card image cap"
             />
             <CardBody>
-              <CardTitle>{this.props.name}</CardTitle>
+              <CardTitle>{this.props.city}{" "}{this.props.categoryname}</CardTitle>
               <Button className="ml-auto">Skip</Button>
-              <CardText>
-                Click on the images you like below.
-              </CardText>
-
-            {/*  Create a image card component then Map through the props.images here and created a image card for each one */}
+              <CardText>Click on the images you like below.</CardText>
               <Row>
-                <Col sm="4">
-                  <img
-                    src="https://thetravelguideonline.com/wp-content/uploads/2017/11/TTG-308.jpg"
-                    alt="thumb"
-                    className="img-thumbnail"
+              {this.props.category.map((x, i) => {
+              return (
+                  <PlannerImageCard
+                    name={x.name}
+                    images={x.images}
+                    key={i}
+                    id={i}
+                    handleImageClick={this.props.handleImageClick}
                   />
-                </Col>
+              );
+            })}
+                
               </Row>
-
-              
             </CardBody>
           </Card>
         </Col>
@@ -57,4 +57,4 @@ class PlannerHotels extends Component {
   }
 }
 
-export default PlannerHotels;
+export default Planner;

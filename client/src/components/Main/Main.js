@@ -14,12 +14,13 @@ class Main extends Component {
   };
 
   render() {
-    console.log(this.props.selected.hotels);
+    console.log(this.props.selected);
     return (
       <Container>
         <Row>
           <TripCategories
             handleCategoryClick={this.handleCategoryClick}
+            city={this.props.city}
             hotels="hotels"
             events="events"
             food="food"
@@ -31,7 +32,8 @@ class Main extends Component {
         {this.state.category && (
           <Planner
             category={this.props.selected[this.state.category]}
-            name={this.state.category}
+            categoryname={this.state.category}
+            city={this.props.city}
           />
         )}
       </Container>

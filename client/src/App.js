@@ -33,11 +33,16 @@ class App extends Component {
     return (
       <div className="App">
         <AppNavbar />
+        {this.state.selected && (
+          <Main
+            selected={this.state.destinations[this.state.selected]}
+            city={this.state.destinations[this.state.selected].name}
+          />
+        )}
         <Destinations
           destinations={this.state.destinations}
           handleDestinationClick={this.handleDestinationClick}
         />
-        {this.state.selected && <Main selected={this.state.destinations[this.state.selected]} />}
       </div>
     );
   }
