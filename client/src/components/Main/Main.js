@@ -1,61 +1,39 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-import { Container, Row, Col } from "reactstrap";
-import PlannerHotels from "../PlannerHotels";
-import PlannerEvents from "../PlannerEvents";
-import PlannerFood from "../PlannerFood";
-import Notepad from "../Notepad";
-import TripOptions from "../TripOptions";
+// import { Switch, Route } from "react-router-dom";
+import { Container, Row, } from "reactstrap";
+import Planner from "../Planner";
+import TripCategories from "../TripCategories";
 
 class Main extends Component {
+  state = {
+    category: null
+  };
+
+  handleCategoryClick = category => {
+    this.setState({ category: category });
+  };
+
   render() {
+    console.log(this.props.selected.hotels);
     return (
       <Container>
         <Row>
-          <TripOptions />
+          <TripCategories
+            handleCategoryClick={this.handleCategoryClick}
+            hotels="hotels"
+            events="events"
+            food="food"
+            tours="tours"
+            flights="flights"
+            cars="cars"
+          />
         </Row>
-        <Switch>
-        <Route
-            path="/planner/hotels"
-            render={props => (
-              <Row>
-                <Col sm="9">
-                  <PlannerHotels {...props} desinations={this.props.desinations} />
-                </Col>
-                <Col sm="3">
-                  <Notepad {...props} desinations={this.props.desinations} />
-                </Col>
-              </Row>
-            )}
+        {this.state.category && (
+          <Planner
+            category={this.props.selected[this.state.category]}
+            name={this.state.category}
           />
-          <Route
-            path="/planner/events"
-            render={props => (
-              <Row>
-                <Col sm="9">
-                  <PlannerEvents {...props} desinations={this.props.desinations} />
-                </Col>
-                <Col sm="3">
-                  <Notepad {...props} desinations={this.props.desinations} />
-                </Col>
-              </Row>
-            )}
-          />
-          />
-          <Route
-            path="/planner/food"
-            render={props => (
-              <Row>
-                <Col sm="9">
-                  <PlannerFood {...props} desinations={this.props.desinations} />
-                </Col>
-                <Col sm="3">
-                  <Notepad {...props} desinations={this.props.desinations} />
-                </Col>
-              </Row>
-            )}
-          />
-        </Switch>
+        )}
       </Container>
     );
   }

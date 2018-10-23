@@ -16,7 +16,7 @@ class Notepad extends Component {
         <Card className="bg-dark">
           <CardBody>
             <CardTitle className="text-white">
-              <h2>Trip Notepad</h2>
+              Trip Notepad
             </CardTitle>
             <CardText className="text-white">
               You're favorites and trip notes go here.
