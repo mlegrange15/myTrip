@@ -13,7 +13,7 @@ class Notepad extends Component {
   state = {};
   render() {
     return (
-        <Card className="bg-dark">
+        <Card className="bg-dark mb-3">
           <CardBody>
             <CardTitle className="text-white">
               Trip Notepad

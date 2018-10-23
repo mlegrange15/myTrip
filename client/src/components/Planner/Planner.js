@@ -30,7 +30,6 @@ class Planner extends Component {
             />
             <CardBody>
               <CardTitle>{this.props.city}{" "}{this.props.categoryname}</CardTitle>
-              <Button className="ml-auto">Skip</Button>
               <CardText>Click on the images you like below.</CardText>
               <Row>
               {this.props.category.map((x, i) => {

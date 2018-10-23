@@ -26,11 +26,11 @@ router.post('/', (req, res) => {
 });
 
 // DELETE api/Destinations/:id Delete a Destination
-router.delete('/:id', (req, res) => {
- Destination.findById(req.params.id)
- .then(destination => destination.remove().then(()=> res.json({ success: true })))
- .catch(error => res.status(404).json({ success: false }))
-});
+// router.delete('/:id', (req, res) => {
+//  Destination.findById(req.params.id)
+//  .then(destination => destination.remove().then(()=> res.json({ success: true })))
+//  .catch(error => res.status(404).json({ success: false }))
+// });
 
 
 module.exports = router;

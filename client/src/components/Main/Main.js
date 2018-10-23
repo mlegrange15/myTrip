@@ -3,15 +3,24 @@ import React, { Component } from "react";
 import { Container, Row, } from "reactstrap";
 import Planner from "../Planner";
 import TripCategories from "../TripCategories";
+import API from "../utils/API";
 
 class Main extends Component {
   state = {
-    category: null
+    category: null,
+    notes: []
   };
 
   handleCategoryClick = category => {
     this.setState({ category: category });
   };
+
+  handleNoteAdd = note => {
+
+    // API.post the new note to the database then set state and rerender
+    // this.setState({ notes: note });
+
+  }
 
   render() {
     console.log(this.props.selected);
