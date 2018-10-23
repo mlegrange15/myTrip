@@ -30,14 +30,14 @@ class PlannerHotels extends Component {
             <CardBody>
               <CardTitle>{this.props.name}</CardTitle>
               <Button className="ml-auto">Skip</Button>
+              <CardText>
+                Click on the images you like below.
+              </CardText>
 
-              
-              {/*  Create a image card component then Map through the props.images here and created a image card for each one */}
+            {/*  Create a image card component then Map through the props.images here and created a image card for each one */}
               <Row>
-                <Col sm="2">
+                <Col sm="4">
                   <img
-                    height="50px"
-                    width="50px"
                     src="https://thetravelguideonline.com/wp-content/uploads/2017/11/TTG-308.jpg"
                     alt="thumb"
                     className="img-thumbnail"
@@ -45,10 +45,7 @@ class PlannerHotels extends Component {
                 </Col>
               </Row>
 
-              <CardText>
-                Let's start by looking at hotels. Add the hotels you like to
-                your notes.
-              </CardText>
+              
             </CardBody>
           </Card>
         </Col>

@@ -1,22 +1,15 @@
 import React from "react";
-import {
-  Row,
-  Col,
-  Card,
-  CardImg,
-  CardImgOverlay,
-  CardTitle,
-} from "reactstrap";
+import { Row, Col, Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 
-
-const TripCategories = (props) => {
+const TripCategories = props => {
   console.log(props);
-  
-    return(
-      <Row>
+
+  return (
+    <Row>
       <Col sm="2">
         <Card inverse onClick={() => props.handleCategoryClick(props.hotels)}>
           <CardImg
+            className="img-thumbnail"
             width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97270&w=318&h=150&bg=333333&txtclr=666666"
             alt="Card image cap"
@@ -29,6 +22,7 @@ const TripCategories = (props) => {
       <Col sm="2">
         <Card inverse onClick={() => props.handleCategoryClick(props.events)}>
           <CardImg
+            className="img-thumbnail"
             width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
             alt="Card image cap"
@@ -41,6 +35,7 @@ const TripCategories = (props) => {
       <Col sm="2">
         <Card inverse onClick={() => props.handleCategoryClick(props.food)}>
           <CardImg
+            className="img-thumbnail"
             width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
             alt="Card image cap"
@@ -53,6 +48,7 @@ const TripCategories = (props) => {
       <Col sm="2">
         <Card inverse onClick={() => props.handleCategoryClick(props.tours)}>
           <CardImg
+            className="img-thumbnail"
             width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
             alt="Card image cap"
@@ -65,6 +61,7 @@ const TripCategories = (props) => {
       <Col sm="2">
         <Card inverse onClick={() => props.handleCategoryClick(props.flights)}>
           <CardImg
+            className="img-thumbnail"
             width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
             alt="Card image cap"
@@ -77,6 +74,7 @@ const TripCategories = (props) => {
       <Col sm="2">
         <Card inverse onClick={() => props.handleCategoryClick(props.cars)}>
           <CardImg
+            className="img-thumbnail"
             width="100%"
             src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
             alt="Card image cap"
@@ -87,8 +85,7 @@ const TripCategories = (props) => {
         </Card>
       </Col>
     </Row>
+  );
+};
 
-    )
-  }
-
-  export default TripCategories;
+export default TripCategories;
