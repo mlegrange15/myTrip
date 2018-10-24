@@ -25,6 +25,8 @@ class PlannerImageCard extends React.Component {
   }
 
   render() {
+      console.log(this.props);
+      
     return (
       <Col sm="4">
         <img
@@ -43,7 +45,7 @@ class PlannerImageCard extends React.Component {
            Lorem
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
+            <Button color="primary" onClick={(e) => this.props.handleNoteAdd(e,this.props.name)}>
               Add to notepad
             </Button>{" "}
             <Button color="secondary" onClick={this.toggle}>

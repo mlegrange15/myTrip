@@ -16,6 +16,8 @@ class Planner extends Component {
   state = {};
   render() {
     console.log(this.props.category);
+    console.log(this.props.notes);
+    console.log(this.props.categoryname);
 
     return (
       <Row className="mt-3">
@@ -29,27 +31,32 @@ class Planner extends Component {
               alt="Card image cap"
             />
             <CardBody>
-              <CardTitle>{this.props.city}{" "}{this.props.categoryname}</CardTitle>
+              <CardTitle>
+                {this.props.city} {this.props.categoryname}
+              </CardTitle>
               <CardText>Click on the images you like below.</CardText>
               <Row>
-              {this.props.category.map((x, i) => {
-              return (
-                  <PlannerImageCard
-                    name={x.name}
-                    images={x.images}
-                    key={i}
-                    id={i}
-                    handleImageClick={this.props.handleImageClick}
-                  />
-              );
-            })}
-                
+                {this.props.category.map((x, i) => {
+                  return (
+                    <PlannerImageCard
+                      name={x.name}
+                      images={x.images}
+                      key={i}
+                      id={i}
+                      handleNoteAdd={this.props.handleNoteAdd}
+                    />
+                  );
+                })}
               </Row>
             </CardBody>
           </Card>
         </Col>
         <Col sm="3">
-          <Notepad desinations={this.props.desinations} />
+          <Notepad
+            notes={this.props.notes}
+            city={this.props.city}
+            handleNoteRemove={this.props.handleNoteRemove}
+          />
         </Col>
       </Row>
     );

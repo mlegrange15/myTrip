@@ -25,7 +25,9 @@ class App extends Component {
 
   // OnClick for the Destination selector ans send it via props to Destinations component
 
-  handleDestinationClick = id => {
+  handleDestinationClick = (e,id) => {
+    e.preventDefault();
+
     this.setState({ selected: id });
   };
 
