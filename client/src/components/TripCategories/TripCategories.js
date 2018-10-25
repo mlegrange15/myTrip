@@ -13,7 +13,7 @@ const TripCategories = props => {
       </Row>
       <Row>
         <Col sm="2">
-          <Card inverse onClick={() => props.handleCategoryClick(props.hotels)}>
+          <Card className="shadow-lg" inverse onClick={() => props.handleCategoryClick(props.hotels)}>
             <CardImg
               className="img-thumbnail"
               width="100%"

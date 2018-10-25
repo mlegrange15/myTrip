@@ -9,7 +9,7 @@ import API from "./components/utils/API";
 
 class App extends Component {
   state = {
-    destinations: null,
+    destinations: [],
     // id of selected destination
     selected: undefined
   };
@@ -19,15 +19,18 @@ class App extends Component {
     API.getDestinations({})
       .then(res => {
         this.setState({ destinations: res.data });
+        console.log(this.state.destinations);
+        
       })
       .catch(err => console.log(err));
   }
 
   // OnClick for the Destination selector ans send it via props to Destinations component
 
-  handleDestinationClick = (e,id) => {
+  handleDestinationClick = (e, id, key) => {
     e.preventDefault();
-
+    console.log(id);
+    console.log(typeof(id));
     this.setState({ selected: id });
   };
 
@@ -35,16 +38,16 @@ class App extends Component {
     return (
       <div className="App">
         <AppNavbar />
+        <Destinations
+          destinations={this.state.destinations}
+          handleDestinationClick={this.handleDestinationClick}
+        />
         {this.state.selected && (
           <Main
             selected={this.state.destinations[this.state.selected]}
             city={this.state.destinations[this.state.selected].name}
           />
         )}
-        <Destinations
-          destinations={this.state.destinations}
-          handleDestinationClick={this.handleDestinationClick}
-        />
       </div>
     );
   }
