@@ -31,7 +31,7 @@ class Destinations extends Component {
                     images={d.images}
                     description={d.description}
                     key={d._id}
-                    id={i}
+                    id={d._id}
                     handleDestinationClick={this.props.handleDestinationClick}
                   />
               );
