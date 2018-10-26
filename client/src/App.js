@@ -6,7 +6,7 @@ import AppNavbar from "./components/AppNavbar";
 import Destinations from "./components/Destinations";
 import Main from "./components/Main";
 import API from "./components/utils/API";
-import uuid from 'uuid';
+// import uuid from 'uuid';
 
 class App extends Component {
   state = {
@@ -21,17 +21,17 @@ class App extends Component {
     // grab all the destinations from the db, set state and then populate the featured destinations component.
     API.getDestinations({})
       .then(res => {
-        const hash = {}
+        const hash = {};
 
         for (let i = 0; i < res.data.length; i++) {
           const element = res.data[i];
-          hash[element._id] = element
+          hash[element.name] = element;
         }
 
-        this.setState({ 
+        this.setState({
           destinationsHash: hash,
           destinations: res.data
-        });        
+        });
       })
       .catch(err => console.log(err));
   }
@@ -40,38 +40,42 @@ class App extends Component {
 
   handleDestinationClick = (e, props, key) => {
     e.preventDefault();
-
-    console.log(props.id);
-    console.log(props.name);
+    this.setState({ selected: props.name });
+    console.log("Selected state updated to :", this.state.selected);
+    console.log("getNotes fired :", props);
     let notes = [];
     API.getNotes({})
-    .then(res => {
+      .then(res => {
+        console.log("getNotes came back :", res.data);
 
-      console.log("getNotes fired :" , res.data);
-      
-      
-      for (let i = 0; i < res.data.length; i++) {
-        const note = res.data[i].name;
-        notes.push(note)
-        console.log("Updated notes state :" , notes);
-        
-      }    
-      this.setState({ selected: props.id, notes: notes});
-      console.log("New notes state :" , this.state.notes);
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].city === this.state.selected) {
+            const note = res.data[i].name;
+            notes.push(note);
+          }
+        }
+        this.setState({ notes: notes });
+        console.log("New notes state :", this.state.notes);
+        console.log("Selected state updated to :", this.state.selected);
+      })
 
-    })
-    .catch(err => console.log(err));
+      .catch(err => console.log(err));
   };
 
+  // get notes function
 
   handleNoteAdd = (e, note) => {
     e.preventDefault();
-    
-    API.saveNote({ city: note.city, category: note.categoryname, name: note.name, })
-    .then( res => {
-      console.log("NOTE SAVED");
+
+    API.saveNote({
+      city: note.city,
+      category: note.categoryname,
+      name: note.name
     })
-    .catch( err => console.log(err));
+      .then(res => {
+        console.log("NOTE SAVED");
+      })
+      .catch(err => console.log(err));
     this.setState({ notes: [...this.state.notes, note.name] });
   };
 
