@@ -11,7 +11,6 @@ class Destinations extends Component {
 
   render() {
     if (!this.props.destinations) return null;
-    console.log(this.props);
     return (
       <Jumbotron className="bg-dark" fluid>
         <Container fluid>
