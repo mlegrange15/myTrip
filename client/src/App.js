@@ -26,7 +26,6 @@ class App extends Component {
           hash[element._id] = element
         }
 
-        // this.setState({ destinations: res.data });
         this.setState({ 
           destinationsHash: hash,
           destinations: res.data
