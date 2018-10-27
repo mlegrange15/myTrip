@@ -17,7 +17,6 @@ class Main extends Component {
   render() {
     return (
       <Container>
-        <Row>
           <TripCategories
             handleCategoryClick={this.handleCategoryClick}
             city={this.props.city}
@@ -28,7 +27,6 @@ class Main extends Component {
             flights="flights"
             cars="cars"
           />
-        </Row>
         {this.state.category && (
           <Planner
             category={this.props.selected[this.state.category]}

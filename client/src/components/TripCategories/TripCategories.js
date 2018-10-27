@@ -12,12 +12,12 @@ const TripCategories = props => {
         </Col>
       </Row>
       <Row>
-        <Col sm="2">
+        <Col sm="3">
           <Card className="shadow-lg" inverse onClick={() => props.handleCategoryClick(props.hotels)}>
             <CardImg
               className="img-thumbnail"
               width="100%"
-              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97270&w=318&h=150&bg=333333&txtclr=666666"
+              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97270&w=250&h=50&bg=333333&txtclr=666666"
               alt="Card image cap"
             />
             <CardImgOverlay>
@@ -25,12 +25,12 @@ const TripCategories = props => {
             </CardImgOverlay>
           </Card>
         </Col>
-        <Col sm="2">
+        <Col sm="3">
           <Card inverse onClick={() => props.handleCategoryClick(props.events)}>
             <CardImg
               className="img-thumbnail"
               width="100%"
-              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
+              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=250&h=50&bg=333333&txtclr=666666"
               alt="Card image cap"
             />
             <CardImgOverlay>
@@ -38,12 +38,12 @@ const TripCategories = props => {
             </CardImgOverlay>
           </Card>
         </Col>
-        <Col sm="2">
+        <Col sm="3">
           <Card inverse onClick={() => props.handleCategoryClick(props.food)}>
             <CardImg
               className="img-thumbnail"
               width="100%"
-              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
+              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=250&h=50&bg=333333&txtclr=666666"
               alt="Card image cap"
             />
             <CardImgOverlay>
@@ -51,45 +51,16 @@ const TripCategories = props => {
             </CardImgOverlay>
           </Card>
         </Col>
-        <Col sm="2">
+        <Col sm="3">
           <Card inverse onClick={() => props.handleCategoryClick(props.tours)}>
             <CardImg
               className="img-thumbnail"
               width="100%"
-              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
+              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=250&h=50&bg=333333&txtclr=666666"
               alt="Card image cap"
             />
             <CardImgOverlay>
               <CardTitle>Tours</CardTitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col sm="2">
-          <Card
-            inverse
-            onClick={() => props.handleCategoryClick(props.flights)}
-          >
-            <CardImg
-              className="img-thumbnail"
-              width="100%"
-              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
-              alt="Card image cap"
-            />
-            <CardImgOverlay>
-              <CardTitle>Flights</CardTitle>
-            </CardImgOverlay>
-          </Card>
-        </Col>
-        <Col sm="2">
-          <Card inverse onClick={() => props.handleCategoryClick(props.cars)}>
-            <CardImg
-              className="img-thumbnail"
-              width="100%"
-              src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97150&w=318&h=150&bg=333333&txtclr=666666"
-              alt="Card image cap"
-            />
-            <CardImgOverlay>
-              <CardTitle>Car</CardTitle>
             </CardImgOverlay>
           </Card>
         </Col>

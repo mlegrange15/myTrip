@@ -42,7 +42,6 @@ class Booking extends Component {
             </Card>
           </Col>
           <Col sm="4">
-            <DailyPlanner />
             <Notepad
               notes={this.props.notes}
               city={this.props.city}

@@ -9,10 +9,13 @@ import {
   ListGroup,
   ListGroupItem
 } from "reactstrap";
+import DailyPlanner from '../DailyPlanner'
 
 class Notepad extends Component {
   render() {
     return (
+      <div>
+      <DailyPlanner />
       <Card className="bg-dark mb-3">
         <CardBody>
           <CardTitle className="text-white">
@@ -39,8 +42,8 @@ class Notepad extends Component {
             })}
           </ListGroup>
         </CardBody>
-        <Button className="ml-auto">Button</Button>
       </Card>
+      </div>
     );
   }
 }

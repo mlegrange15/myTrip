@@ -25,15 +25,23 @@ class Itinerary extends Component {
             <ListGroup>
               <ListGroupItem>
                 Flight
-                <Button className="ml-auto">X</Button>
+                <Button className="btn-sm btn-secondary float-right ml-3">Skip</Button>
+                <Button color="primary" className="btn-sm float-right">Book</Button>
               </ListGroupItem>
               <ListGroupItem>
-                Hotel
-                <Button className="ml-auto">X</Button>
+              Hotel
+                <Button className="btn-sm btn-secondary float-right ml-3">Skip</Button>
+                <Button color="primary" className="btn-sm float-right">Book</Button>
               </ListGroupItem>
               <ListGroupItem>
                 Car
-                <Button className="ml-auto">X</Button>
+                <Button className="btn-sm btn-secondary float-right ml-3">Skip</Button>
+                <Button color="primary" className="btn-sm float-right">Book</Button>
+              </ListGroupItem>
+              <ListGroupItem>
+                Activities
+                <Button className="btn-sm btn-secondary float-right ml-3">Skip</Button>
+                <Button color="primary" className="btn-sm float-right">Book</Button>
               </ListGroupItem>
             </ListGroup>
           </CardBody>
