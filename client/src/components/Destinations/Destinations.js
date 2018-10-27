@@ -11,7 +11,6 @@ class Destinations extends Component {
 
   render() {
     if (!this.props.destinations) return null;
-    console.log(this.props);
     return (
       <Jumbotron className="bg-dark" fluid>
         <Container fluid>
@@ -31,7 +30,7 @@ class Destinations extends Component {
                     images={d.images}
                     description={d.description}
                     key={d._id}
-                    id={i}
+                    id={d._id}
                     handleDestinationClick={this.props.handleDestinationClick}
                   />
               );

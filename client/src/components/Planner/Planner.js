@@ -15,9 +15,7 @@ import PlannerImageCard from "../PlannerImageCard";
 class Planner extends Component {
   state = {};
   render() {
-    console.log(this.props.category);
-    console.log(this.props.notes);
-    console.log(this.props.categoryname);
+    console.log(this.props);
 
     return (
       <Row className="mt-3">
@@ -44,6 +42,8 @@ class Planner extends Component {
                       key={i}
                       id={i}
                       handleNoteAdd={this.props.handleNoteAdd}
+                      city={this.props.city}
+                      categoryname={this.props.categoryname}
                     />
                   );
                 })}

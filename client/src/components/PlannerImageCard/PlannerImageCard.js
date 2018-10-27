@@ -24,9 +24,14 @@ class PlannerImageCard extends React.Component {
     });
   }
 
-  render() {
-      console.log(this.props);
-      
+  handleModalToggle = (e, props) => {
+    this.props.handleNoteAdd(e, props)
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+  render() {      
     return (
       <Col sm="4">
         <img
@@ -45,7 +50,7 @@ class PlannerImageCard extends React.Component {
            Lorem
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={(e) => this.props.handleNoteAdd(e,this.props.name)}>
+            <Button color="primary" onClick={(e) => this.handleModalToggle(e,this.props)}>
               Add to notepad
             </Button>{" "}
             <Button color="secondary" onClick={this.toggle}>
