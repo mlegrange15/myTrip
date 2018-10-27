@@ -38,9 +38,7 @@ router.post('/destination', (req, res) => {
 
 // GET api/notes Get all Notes
 router.get('/notes', (req, res) => {
-    console.log(req.body);
-
-    Note.find({ city: "Rome" })
+    Note.find({})
     .then(notes => res.json(notes))
 });
 

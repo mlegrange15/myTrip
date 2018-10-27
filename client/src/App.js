@@ -5,6 +5,7 @@ import "./App.css";
 import AppNavbar from "./components/AppNavbar";
 import Destinations from "./components/Destinations";
 import Main from "./components/Main";
+import Booking from "./components/Booking";
 import API from "./components/utils/API";
 // import uuid from 'uuid';
 
@@ -104,6 +105,10 @@ class App extends Component {
             notes={this.state.notes}
           />
         )}
+        <Booking
+          notes={this.state.notes}
+          handleNoteRemove={this.handleNoteRemove}
+        />
       </div>
     );
   }
