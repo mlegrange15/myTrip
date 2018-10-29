@@ -104,6 +104,7 @@ class App extends Component {
           <Main
             selected={this.state.destinationsHash[this.state.selected]}
             city={this.state.destinationsHash[this.state.selected].name}
+            videos={this.state.destinationsHash[this.state.selected].videos}
             handleNoteAdd={this.handleNoteAdd}
             handleNoteRemove={this.handleNoteRemove}
             notes={this.state.notes}

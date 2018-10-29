@@ -12,7 +12,6 @@ import {
 } from "reactstrap";
 
 import Itinerary from "../Itinerary";
-import DailyPlanner from "../DailyPlanner";
 import Notepad from "../Notepad";
 
 class Booking extends Component {

@@ -5,7 +5,8 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Col
+  Col,
+  Row
 } from "reactstrap";
 
 class PlannerImageCard extends React.Component {
@@ -25,13 +26,13 @@ class PlannerImageCard extends React.Component {
   }
 
   handleModalToggle = (e, props) => {
-    this.props.handleNoteAdd(e, props)
+    this.props.handleNoteAdd(e, props);
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
 
-  render() {      
+  render() {
     return (
       <Col sm="4">
         <img
@@ -47,10 +48,24 @@ class PlannerImageCard extends React.Component {
         >
           <ModalHeader toggle={this.toggle}>{this.props.name}</ModalHeader>
           <ModalBody>
-           Lorem
+            <Row className="mb-3"><b>Price: </b>{this.props.price}</Row>
+            <Row className="mb-3"><b>Address: </b>{" "}{this.props.address}</Row>
+            <Row className="mb-3"><b>Description: </b>{" "}{this.props.description}</Row>
+            <Row className="mb-3">
+            <Col sm="4">
+              <img
+                src={this.props.images}
+                alt="thumb"
+                className="img-thumbnail"
+              />
+              </Col>
+            </Row>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={(e) => this.handleModalToggle(e,this.props)}>
+            <Button
+              color="primary"
+              onClick={e => this.handleModalToggle(e, this.props)}
+            >
               Add to notepad
             </Button>{" "}
             <Button color="secondary" onClick={this.toggle}>

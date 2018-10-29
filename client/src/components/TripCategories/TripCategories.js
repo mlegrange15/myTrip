@@ -15,15 +15,7 @@ class TripCategories extends Component {
     this.setState({ rSelected });
   }
 
-  onCheckboxBtnClick(selected) {
-    const index = this.state.cSelected.indexOf(selected);
-    if (index < 0) {
-      this.state.cSelected.push(selected);
-    } else {
-      this.state.cSelected.splice(index, 1);
-    }
-    this.setState({ cSelected: [...this.state.cSelected] });
-  }
+
 
   render() {
     return (

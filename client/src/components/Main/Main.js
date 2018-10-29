@@ -29,6 +29,7 @@ class Main extends Component {
           <Planner
             category={this.props.selected[this.state.category]}
             categoryname={this.state.category}
+            videos={this.props.videos}
             city={this.props.city}
             notes={this.props.notes}
             handleNoteAdd={this.props.handleNoteAdd}
