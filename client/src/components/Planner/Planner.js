@@ -28,7 +28,7 @@ class Planner extends Component {
               src="https://thetravelguideonline.com/wp-content/uploads/2017/11/TTG-308.jpg"
               alt="Card image cap"
             />
-            <Button color="primary">Book This Trip</Button>
+            <Button onClick={(e) => this.props.handleBooking(e)} color="primary">Book This Trip</Button>
             <CardBody>
               <CardTitle>
                 {this.props.city} {this.props.categoryname}

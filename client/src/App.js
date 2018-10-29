@@ -15,7 +15,8 @@ class App extends Component {
     destinationsHash: {},
     // id of selected destination
     selected: undefined,
-    notes: []
+    notes: [],
+    booking: false
   };
 
   componentDidMount() {
@@ -41,9 +42,7 @@ class App extends Component {
 
   handleDestinationClick = (e, props, key) => {
     e.preventDefault();
-    this.setState({ selected: props.name });
-    console.log("Selected state updated to :", this.state.selected);
-    console.log("getNotes fired :", props);
+    this.setState({ selected: props.name, booking: false });
     let notes = [];
     API.getNotes({})
       .then(res => {
@@ -88,6 +87,11 @@ class App extends Component {
     this.setState({ notes: notesCopy });
   };
 
+  handleBooking = (e) => {
+    e.preventDefault();
+    this.setState({ booking: !this.state.booking });
+  };
+
   render() {
     return (
       <div className="App">
@@ -96,19 +100,22 @@ class App extends Component {
           destinations={this.state.destinations}
           handleDestinationClick={this.handleDestinationClick}
         />
-        {this.state.selected && (
+        {this.state.selected && !this.state.booking && (
           <Main
             selected={this.state.destinationsHash[this.state.selected]}
             city={this.state.destinationsHash[this.state.selected].name}
             handleNoteAdd={this.handleNoteAdd}
             handleNoteRemove={this.handleNoteRemove}
             notes={this.state.notes}
+            handleBooking={this.handleBooking}
           />
         )}
+        {this.state.booking && (
         <Booking
           notes={this.state.notes}
           handleNoteRemove={this.handleNoteRemove}
         />
+        )}
       </div>
     );
   }

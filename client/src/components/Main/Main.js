@@ -24,8 +24,6 @@ class Main extends Component {
             events="events"
             food="food"
             tours="tours"
-            flights="flights"
-            cars="cars"
           />
         {this.state.category && (
           <Planner
@@ -35,6 +33,8 @@ class Main extends Component {
             notes={this.props.notes}
             handleNoteAdd={this.props.handleNoteAdd}
             handleNoteRemove={this.props.handleNoteRemove}
+            handleBooking={this.props.handleBooking}
+
           />
         )}
       </Container>
