@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import AppNavbar from "./components/AppNavbar";
@@ -7,7 +7,6 @@ import Destinations from "./components/Destinations";
 import Main from "./components/Main";
 import Booking from "./components/Booking";
 import API from "./components/utils/API";
-// import uuid from 'uuid';
 
 class App extends Component {
   state = {
@@ -43,18 +42,22 @@ class App extends Component {
   handleDestinationClick = (e, props, key) => {
     e.preventDefault();
     this.setState({ selected: props.name, booking: false });
-    let notes = [];
+    // let notes = [];
     API.getNotes({})
       .then(res => {
         console.log("getNotes came back :", res.data);
 
-        for (let i = 0; i < res.data.length; i++) {
-          if (res.data[i].city === this.state.selected) {
-            const note = res.data[i].name;
-            notes.push(note);
-          }
-        }
-        this.setState({ notes: notes });
+        // for (let i = 0; i < res.data.length; i++) {
+        //   if (res.data[i].city === this.state.selected) {
+        //     const note = res.data[i].name;
+        //     notes.push(note);
+        //   }
+        // }
+        this.setState({
+          notes: res.data.filter(note => {
+            return note.city === this.state.selected;
+          })
+        });
         console.log("New notes state :", this.state.notes);
         console.log("Selected state updated to :", this.state.selected);
       })
@@ -76,48 +79,63 @@ class App extends Component {
         console.log("NOTE SAVED");
       })
       .catch(err => console.log(err));
-    this.setState({ notes: [...this.state.notes, note.name] });
+    this.setState({ notes: [...this.state.notes, note] });
   };
 
   handleNoteRemove = (e, note) => {
     e.preventDefault();
+    console.log(note);
+    API.deleteNote(note._id)
+      .then(res => {
+        console.log("NOTE DELETED");
+      })
+      .catch(err => console.log(err));
+
     var notesCopy = [...this.state.notes]; // make a separate copy of the array
     var index = notesCopy.indexOf(note);
     notesCopy.splice(index, 1);
     this.setState({ notes: notesCopy });
   };
 
-  handleBooking = (e) => {
+  handleBooking = e => {
     e.preventDefault();
     this.setState({ booking: !this.state.booking });
   };
 
   render() {
     return (
-      <div className="App">
-        <AppNavbar />
-        <Destinations
-          destinations={this.state.destinations}
-          handleDestinationClick={this.handleDestinationClick}
-        />
-        {this.state.selected && !this.state.booking && (
-          <Main
-            selected={this.state.destinationsHash[this.state.selected]}
-            city={this.state.destinationsHash[this.state.selected].name}
-            videos={this.state.destinationsHash[this.state.selected].videos}
-            handleNoteAdd={this.handleNoteAdd}
-            handleNoteRemove={this.handleNoteRemove}
-            notes={this.state.notes}
-            handleBooking={this.handleBooking}
+      <Router>
+        <div className="App">
+          <AppNavbar />
+          <Destinations
+            destinations={this.state.destinations}
+            handleDestinationClick={this.handleDestinationClick}
           />
+          {this.state.selected &&
+            !this.state.booking && (
+              <Main
+                selected={this.state.destinationsHash[this.state.selected]}
+                city={this.state.destinationsHash[this.state.selected].name}
+                videos={this.state.destinationsHash[this.state.selected].videos}
+                handleNoteAdd={this.handleNoteAdd}
+                handleNoteRemove={this.handleNoteRemove}
+                notes={this.state.notes}
+                handleBooking={this.handleBooking}
+              />
+            )}
+
+          {/* <Route path="/booking" render={() => (
         )}
-        {this.state.booking && (
-        <Booking
-          notes={this.state.notes}
-          handleNoteRemove={this.handleNoteRemove}
-        />
-        )}
-      </div>
+        /> */}
+
+          {this.state.booking && (
+            <Booking
+              notes={this.state.notes}
+              handleNoteRemove={this.handleNoteRemove}
+            />
+          )}
+        </div>
+      </Router>
     );
   }
 }

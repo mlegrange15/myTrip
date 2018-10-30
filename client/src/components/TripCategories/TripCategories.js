@@ -3,7 +3,6 @@ import {
   Row,
   Col,
   Button,
-  ButtonGroup
 } from "reactstrap";
 
 class TripCategories extends Component {

@@ -16,7 +16,6 @@ import "./Planner.css";
 class Planner extends Component {
   state = {};
   render() {
-    console.log(this.props.videos[0]);
 
     const video = this.props.videos[0];
     console.log(video[this.props.categoryname]);
@@ -29,7 +28,7 @@ class Planner extends Component {
               top
               width="100%"
               height="300px"
-              src="https://thetravelguideonline.com/wp-content/uploads/2017/11/TTG-308.jpg"
+              src={this.props.images}
               alt="Card image cap"
             />
             <Button onClick={e => this.props.handleBooking(e)} color="primary">

@@ -69,10 +69,6 @@ class Notepad extends Component {
               })}
             </ListGroup>
           </CardBody>
-          {/* </Card>
-
-
-      <Card className="bg-dark mb-3"> */}
           <CardBody>
             <CardTitle className="text-white">
               {this.props.city} Trip Notepad
@@ -83,11 +79,10 @@ class Notepad extends Component {
             <ListGroup>
               {this.props.notes.map((note, i) => {
                 return (
-                  <ListGroupItem key={i} id={i}>
-                    {note}
+                  <ListGroupItem key={note._id} id={note._id}>
+                    {note.name}
                     <Button
                       className="btn-sm btn-danger float-right"
-                      key={i}
                       id={i}
                       onClick={e => this.props.handleNoteRemove(e, note)}
                     >

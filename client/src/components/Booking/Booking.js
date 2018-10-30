@@ -5,7 +5,6 @@ import {
   CardBody,
   CardText,
   CardTitle,
-  Button,
   Col,
   Row,
   Container
@@ -16,7 +15,7 @@ import Notepad from "../Notepad";
 
 class Booking extends Component {
   state = {};
-  render() {
+  render() {    
     return (
       <Container>
         <Row className="mt-3">

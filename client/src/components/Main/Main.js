@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 // import { Switch, Route } from "react-router-dom";
-import { Container, Row } from "reactstrap";
+import { Container } from "reactstrap";
 import Planner from "../Planner";
 import TripCategories from "../TripCategories";
-import API from "../utils/API";
 
 class Main extends Component {
   state = {
@@ -15,6 +14,7 @@ class Main extends Component {
   };
 
   render() {
+    console.log(this.props.selected);
     return (
       <Container>
           <TripCategories
@@ -29,6 +29,7 @@ class Main extends Component {
           <Planner
             category={this.props.selected[this.state.category]}
             categoryname={this.state.category}
+            images={this.props.selected.images}
             videos={this.props.videos}
             city={this.props.city}
             notes={this.props.notes}

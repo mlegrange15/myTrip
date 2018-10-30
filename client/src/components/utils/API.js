@@ -5,10 +5,11 @@ export default {
   getDestinations: function() {
     return axios.get("/api/destinations");
   },
-  //   // Deletes the article with the given id
-  //   deleteArticle: function(id) {
-  //     return axios.delete("/api/destinations/" + id);
-  //   },
+  //   // Deletes the note with the given id
+    deleteNote: function(id) {
+
+      return axios.delete("/api/notes/" + id);
+    },
   // Saves a note to the database
   saveNote: function(noteData) {
     return axios.post("/api/notes", noteData);
