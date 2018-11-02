@@ -12,14 +12,13 @@ import {
 import Notepad from "../Notepad";
 import PlannerImageCard from "../PlannerImageCard";
 import "./Planner.css";
+import { Link } from "react-router-dom";
 
 class Planner extends Component {
   state = {};
   render() {
-
     const video = this.props.videos[0];
-    console.log(video[this.props.categoryname]);
-
+    if (!this.props.category) return null;
     return (
       <Row className="mt-3">
         <Col sm="8">
@@ -31,7 +30,10 @@ class Planner extends Component {
               src={this.props.images}
               alt="Card image cap"
             />
-            <Button onClick={e => this.props.handleBooking(e)} color="primary">
+            <Button
+              onClick={e => this.props.handleBooking(e, this.props)}
+              color="primary"
+            >
               Book This Trip
             </Button>
             <CardBody>

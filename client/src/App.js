@@ -13,7 +13,7 @@ class App extends Component {
     destinations: [],
     destinationsHash: {},
     // id of selected destination
-    selected: undefined,
+    selected: null,
     notes: [],
     booking: false
   };
@@ -23,49 +23,45 @@ class App extends Component {
     API.getDestinations({})
       .then(res => {
         const hash = {};
-
         for (let i = 0; i < res.data.length; i++) {
           const element = res.data[i];
           hash[element.name] = element;
         }
-
         this.setState({
           destinationsHash: hash,
           destinations: res.data
         });
       })
       .catch(err => console.log(err));
-  }
-
-  // OnClick for the Destination selector ans send it via props to Destinations component
-
-  handleDestinationClick = (e, props, key) => {
-    e.preventDefault();
-    this.setState({ selected: props.name, booking: false });
-    // let notes = [];
     API.getNotes({})
       .then(res => {
-        console.log("getNotes came back :", res.data);
-
-        // for (let i = 0; i < res.data.length; i++) {
-        //   if (res.data[i].city === this.state.selected) {
-        //     const note = res.data[i].name;
-        //     notes.push(note);
-        //   }
-        // }
         this.setState({
           notes: res.data.filter(note => {
             return note.city === this.state.selected;
           })
         });
-        console.log("New notes state :", this.state.notes);
-        console.log("Selected state updated to :", this.state.selected);
       })
-
       .catch(err => console.log(err));
   };
 
-  // get notes function
+  handleDestinationClick = (e, props, key) => {
+    e.preventDefault();
+    this.setSelectedState(props.name);
+    API.getNotes({})
+      .then(res => {
+        this.setState({
+          notes: res.data.filter(note => {
+            return note.city === this.state.selected;
+          })
+        });
+      })
+      .catch(err => console.log(err));
+    props.history.push("/plan/" + props.name);
+  };
+
+  setSelectedState = state => {
+    this.setState({ selected: state, booking: false });
+  };
 
   handleNoteAdd = (e, note) => {
     e.preventDefault();
@@ -97,43 +93,68 @@ class App extends Component {
     this.setState({ notes: notesCopy });
   };
 
-  handleBooking = e => {
+  handleBooking = (e, props )=> {
     e.preventDefault();
     this.setState({ booking: !this.state.booking });
+    props.history.push("/book/" + props.city);
+
+  };
+
+  updateSelected = selected => {
+    this.setState({
+      selected: selected
+    });
   };
 
   render() {
+    if (!this.state.destinations || !this.state.destinationsHash) return null;
     return (
       <Router>
         <div className="App">
-          <AppNavbar />
-          <Destinations
-            destinations={this.state.destinations}
-            handleDestinationClick={this.handleDestinationClick}
-          />
-          {this.state.selected &&
-            !this.state.booking && (
-              <Main
-                selected={this.state.destinationsHash[this.state.selected]}
-                city={this.state.destinationsHash[this.state.selected].name}
-                videos={this.state.destinationsHash[this.state.selected].videos}
-                handleNoteAdd={this.handleNoteAdd}
-                handleNoteRemove={this.handleNoteRemove}
-                notes={this.state.notes}
-                handleBooking={this.handleBooking}
-              />
+          <Route
+            path="/"
+            render={({ history, match }) => (
+              <div>
+                <AppNavbar />{" "}
+                <Destinations
+                  destinations={this.state.destinations}
+                  handleDestinationClick={this.handleDestinationClick}
+                  history={history}
+                  match={match}
+                />
+              </div>
             )}
-
-          {/* <Route path="/booking" render={() => (
-        )}
-        /> */}
-
-          {this.state.booking && (
-            <Booking
-              notes={this.state.notes}
-              handleNoteRemove={this.handleNoteRemove}
-            />
-          )}
+          />
+          <Route
+            path="/plan/:city"
+            render={({ history, match }) => (
+              <div>
+                <Main
+                  selected={this.state.destinationsHash[this.state.selected]}
+                  handleNoteAdd={this.handleNoteAdd}
+                  handleNoteRemove={this.handleNoteRemove}
+                  notes={this.state.notes}
+                  handleBooking={this.handleBooking}
+                  history={history}
+                  match={match}
+                  updateSelected={this.updateSelected}
+                />
+              </div>
+            )}
+          />
+          <Route
+            path="/book"
+            render={({ history, match }) => (
+              <div>
+                <Booking
+                  notes={this.state.notes}
+                  handleNoteRemove={this.handleNoteRemove}
+                  history={history}
+                  match={match}
+                />
+              </div>
+            )}
+          />
         </div>
       </Router>
     );
