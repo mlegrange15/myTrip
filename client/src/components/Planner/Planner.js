@@ -40,10 +40,12 @@ class Planner extends Component {
                 {this.props.city} {this.props.categoryname}
               </CardTitle>
               <Row className="m-3" id="video-row">
-                <Col sm="12" className="embed-responsive embed-responsive-16by9">
+                <Col
+                  sm="12"
+                  className="embed-responsive embed-responsive-16by9"
+                >
                   <iframe
-                    width="560"
-                    height="315"
+                    title="video"
                     src={video[this.props.categoryname]}
                     frameBorder="0"
                     allow="autoplay; encrypted-media"
