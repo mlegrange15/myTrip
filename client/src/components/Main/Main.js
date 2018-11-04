@@ -4,6 +4,7 @@ import { Container, Row } from "reactstrap";
 import Planner from "../Planner";
 import TripCategories from "../TripCategories";
 import API from "../utils/API";
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 class Main extends Component {
   state = {
@@ -17,6 +18,7 @@ class Main extends Component {
   render() {
     return (
       <Container>
+          
           <TripCategories
             handleCategoryClick={this.handleCategoryClick}
             city={this.props.city}
@@ -38,6 +40,7 @@ class Main extends Component {
 
           />
         )}
+        
       </Container>
     );
   }

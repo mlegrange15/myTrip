@@ -7,6 +7,7 @@ import {
   Jumbotron
 } from "reactstrap";
 
+
 class Destinations extends Component {
 
   render() {
@@ -36,6 +37,7 @@ class Destinations extends Component {
               );
             })}
           </Row>
+  
         </Container>
       </Jumbotron>
     );
