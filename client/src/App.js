@@ -108,6 +108,7 @@ class App extends Component {
         {this.state.selected && !this.state.booking && (
          
          <ScrollableAnchor id={'sectionOne'}> 
+  
           <Main
             selected={this.state.destinationsHash[this.state.selected]}
             city={this.state.destinationsHash[this.state.selected].name}
