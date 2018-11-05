@@ -4,6 +4,7 @@ import { Container, Row } from "reactstrap";
 import Planner from "../Planner";
 import TripCategories from "../TripCategories";
 import API from "../utils/API";
+import { goToAnchor } from 'react-scrollable-anchor';
 import ScrollableAnchor from 'react-scrollable-anchor'
 
 class Main extends Component {
@@ -12,13 +13,15 @@ class Main extends Component {
   };
 
   handleCategoryClick = category => {
+    goToAnchor('sectionTwo');
     this.setState({ category: category });
   };
 
   render() {
     return (
       <Container>
-          
+
+        <ScrollableAnchor id={'sectionTwo'}>
           <TripCategories
             handleCategoryClick={this.handleCategoryClick}
             city={this.props.city}
@@ -27,7 +30,9 @@ class Main extends Component {
             food="food"
             tours="tours"
           />
+        </ScrollableAnchor>
         {this.state.category && (
+             <ScrollableAnchor id={'sectionThree'}>
           <Planner
             category={this.props.selected[this.state.category]}
             categoryname={this.state.category}
@@ -37,10 +42,10 @@ class Main extends Component {
             handleNoteAdd={this.props.handleNoteAdd}
             handleNoteRemove={this.props.handleNoteRemove}
             handleBooking={this.props.handleBooking}
-
           />
+          </ScrollableAnchor>
         )}
-        
+
       </Container>
     );
   }
