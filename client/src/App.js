@@ -7,6 +7,10 @@ import Destinations from "./components/Destinations";
 import Main from "./components/Main";
 import Booking from "./components/Booking";
 import API from "./components/utils/API";
+import { goToAnchor } from 'react-scrollable-anchor';
+import ScrollableAnchor from 'react-scrollable-anchor';
+
+// import uuid from 'uuid';
 
 class App extends Component {
   state = {
@@ -41,8 +45,12 @@ class App extends Component {
 
   handleDestinationClick = (e, props, key) => {
     e.preventDefault();
-    this.setState({ selected: props.name, booking: false });
-    // let notes = [];
+    this.setState({ selected: props.name, booking: false }, () => {
+      //this is the href anchor to scroll down the page
+      goToAnchor('sectionOne');
+      console.log('here')
+    });
+    let notes = [];
     API.getNotes({})
       .then(res => {
         console.log("getNotes came back :", res.data);
@@ -105,26 +113,28 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <AppNavbar />
-          <Destinations
-            destinations={this.state.destinations}
-            handleDestinationClick={this.handleDestinationClick}
-          />
-          {this.state.selected &&
-            !this.state.booking && (
-              <Main
-                selected={this.state.destinationsHash[this.state.selected]}
-                city={this.state.destinationsHash[this.state.selected].name}
-                videos={this.state.destinationsHash[this.state.selected].videos}
-                handleNoteAdd={this.handleNoteAdd}
-                handleNoteRemove={this.handleNoteRemove}
-                notes={this.state.notes}
-                handleBooking={this.handleBooking}
-              />
-            )}
+      <div className="App">
 
-          {/* <Route path="/booking" render={() => (
+        <AppNavbar />
+        <Destinations
+          destinations={this.state.destinations}
+          handleDestinationClick={this.handleDestinationClick}
+        />
+        {this.state.selected && !this.state.booking && (
+         
+         <ScrollableAnchor id={'sectionOne'}> 
+  
+          <Main
+            selected={this.state.destinationsHash[this.state.selected]}
+            city={this.state.destinationsHash[this.state.selected].name}
+            videos={this.state.destinationsHash[this.state.selected].videos}
+            handleNoteAdd={this.handleNoteAdd}
+            handleNoteRemove={this.handleNoteRemove}
+            notes={this.state.notes}
+            handleBooking={this.handleBooking}
+          />
+          </ScrollableAnchor>
+          
         )}
         /> */}
 

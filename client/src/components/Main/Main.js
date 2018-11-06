@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { Container } from "reactstrap";
 import Planner from "../Planner";
 import TripCategories from "../TripCategories";
+import API from "../utils/API";
+import { goToAnchor } from 'react-scrollable-anchor';
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 class Main extends Component {
   state = {
@@ -10,22 +13,35 @@ class Main extends Component {
   };
 
   handleCategoryClick = category => {
-    this.setState({ category: category });
+    this.setState({ category: category }, () => {
+      console.log('go to section three')
+      goToAnchor('sectionThree');
+    });
+  };
+  handlePlannerClick = () => {
+    console.log("I'm firing")
+    goToAnchor('sectionThree');
   };
 
   render() {
     console.log(this.props.selected);
     return (
       <Container>
-          <TripCategories
-            handleCategoryClick={this.handleCategoryClick}
-            city={this.props.city}
-            hotels="hotels"
-            events="events"
-            food="food"
-            tours="tours"
-          />
+
+        <ScrollableAnchor id={'sectionTwo'}>
+          <div>
+            <TripCategories
+              handleCategoryClick={this.handleCategoryClick}
+              city={this.props.city}
+              hotels="hotels"
+              events="events"
+              food="food"
+              tours="tours"
+            />
+          </div>
+        </ScrollableAnchor>
         {this.state.category && (
+             
           <Planner
             category={this.props.selected[this.state.category]}
             categoryname={this.state.category}
@@ -36,9 +52,10 @@ class Main extends Component {
             handleNoteAdd={this.props.handleNoteAdd}
             handleNoteRemove={this.props.handleNoteRemove}
             handleBooking={this.props.handleBooking}
-
           />
         )}
+{/* <ScrollableAnchor id={'sectionThree'}>
+</ScrollableAnchor> */}
       </Container>
     );
   }
