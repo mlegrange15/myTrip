@@ -17,8 +17,8 @@ const DestinationCard = (props) => {
         <Col sm="4">
         <Card className="mb-3" onClick={(e) => props.handleDestinationClick(e,props)}> 
         <CardImg
-          width="100%"
-          height="200px"
+          // width="100%"
+          height="150px"
           src={props.images}
           alt="Card image cap"  
         />
