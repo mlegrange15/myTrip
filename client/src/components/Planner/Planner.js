@@ -12,9 +12,13 @@ import {
 import Notepad from "../Notepad";
 import PlannerImageCard from "../PlannerImageCard";
 import "./Planner.css";
+import { goToAnchor } from 'react-scrollable-anchor';
+import ScrollableAnchor from 'react-scrollable-anchor'
+
 
 class Planner extends Component {
   state = {};
+
   render() {
     console.log(this.props.videos[0]);
 
@@ -22,58 +26,66 @@ class Planner extends Component {
     console.log(video[this.props.categoryname]);
 
     return (
+
       <Row className="mt-3">
         <Col sm="8">
           <Card className="mb-3">
             <CardImg
               top
-              width="100%"
+              // width="50%"
               height="300px"
+             // Michael please grab the image from the DestinationsSchema, otherwise its hardcoded
               src="https://thetravelguideonline.com/wp-content/uploads/2017/11/TTG-308.jpg"
               alt="Card image cap"
             />
             <Button onClick={e => this.props.handleBooking(e)} color="primary">
               Book This Trip
             </Button>
-            <CardBody>
-              <CardTitle>
-                {this.props.city} {this.props.categoryname}
-              </CardTitle>
-              <Row className="m-3" id="video-row">
-                <Col
-                  sm="12"
-                  className="embed-responsive embed-responsive-16by9"
-                >
-                  <iframe
-                    title="video"
-                    src={video[this.props.categoryname]}
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                  />
-                </Col>
-              </Row>
-              <CardText>Click on the images you like below.</CardText>
-              <Row>
-                {this.props.category.map((x, i) => {
-                  return (
-                    <PlannerImageCard
-                      name={x.name}
-                      images={x.images}
-                      description={x.description}
-                      price={x.price}
-                      address={x.address}
-                      videos={x.videos}
-                      key={i}
-                      id={i}
-                      handleNoteAdd={this.props.handleNoteAdd}
-                      city={this.props.city}
-                      categoryname={this.props.categoryname}
-                    />
-                  );
-                })}
-              </Row>
-            </CardBody>
+            <ScrollableAnchor id={'sectionThree'}>
+              <div>
+                <CardBody>
+                  <CardTitle>
+                    {this.props.city} {this.props.categoryname}
+                  </CardTitle>
+                  <Row className="m-3" id="video-row">
+                    <Col
+                      sm="12"
+                      className="embed-responsive embed-responsive-16by9"
+                    >
+
+                      <iframe
+                        title="video"
+                        src={video[this.props.categoryname]}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                      />
+
+                    </Col>
+                  </Row>
+                  <CardText>Click on the images you like below.</CardText>
+                  <Row>
+                    {this.props.category.map((x, i) => {
+                      return (
+                        <PlannerImageCard
+                          name={x.name}
+                          images={x.images}
+                          description={x.description}
+                          price={x.price}
+                          address={x.address}
+                          videos={x.videos}
+                          key={i}
+                          id={i}
+                          handleNoteAdd={this.props.handleNoteAdd}
+                          city={this.props.city}
+                          categoryname={this.props.categoryname}
+                        />
+                      );
+                    })}
+                  </Row>
+                </CardBody>
+              </div>
+            </ScrollableAnchor>
           </Card>
         </Col>
         <Col sm="4">
@@ -84,6 +96,7 @@ class Planner extends Component {
           />
         </Col>
       </Row>
+
     );
   }
 }

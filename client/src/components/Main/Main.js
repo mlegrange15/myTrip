@@ -13,8 +13,14 @@ class Main extends Component {
   };
 
   handleCategoryClick = category => {
-    goToAnchor('sectionTwo');
-    this.setState({ category: category });
+    this.setState({ category: category }, () => {
+      console.log('go to section three')
+      goToAnchor('sectionThree');
+    });
+  };
+  handlePlannerClick = () => {
+    console.log("I'm firing")
+    goToAnchor('sectionThree');
   };
 
   render() {
@@ -22,17 +28,19 @@ class Main extends Component {
       <Container>
 
         <ScrollableAnchor id={'sectionTwo'}>
-          <TripCategories
-            handleCategoryClick={this.handleCategoryClick}
-            city={this.props.city}
-            hotels="hotels"
-            events="events"
-            food="food"
-            tours="tours"
-          />
+          <div>
+            <TripCategories
+              handleCategoryClick={this.handleCategoryClick}
+              city={this.props.city}
+              hotels="hotels"
+              events="events"
+              food="food"
+              tours="tours"
+            />
+          </div>
         </ScrollableAnchor>
         {this.state.category && (
-             <ScrollableAnchor id={'sectionThree'}>
+             
           <Planner
             category={this.props.selected[this.state.category]}
             categoryname={this.state.category}
@@ -43,9 +51,9 @@ class Main extends Component {
             handleNoteRemove={this.props.handleNoteRemove}
             handleBooking={this.props.handleBooking}
           />
-          </ScrollableAnchor>
         )}
-
+{/* <ScrollableAnchor id={'sectionThree'}>
+</ScrollableAnchor> */}
       </Container>
     );
   }

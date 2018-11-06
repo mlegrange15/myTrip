@@ -45,9 +45,11 @@ class App extends Component {
 
   handleDestinationClick = (e, props, key) => {
     e.preventDefault();
-    //this is the href anchor to scroll down the page
-    goToAnchor('sectionOne');
-    this.setState({ selected: props.name, booking: false });
+    this.setState({ selected: props.name, booking: false }, () => {
+      //this is the href anchor to scroll down the page
+      goToAnchor('sectionOne');
+      console.log('here')
+    });
     let notes = [];
     API.getNotes({})
       .then(res => {

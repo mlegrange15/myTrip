@@ -25,11 +25,7 @@ const DestinationCard = (props) => {
         <CardBody>
           <CardTitle>{props.name}</CardTitle>
           <CardText>{props.description}</CardText>
-          <CardLink href="#">
-          <a href='#sectionOne'> 
-            <Button onClick={(e) => props.handleDestinationClick(e,props)}>Start Planning</Button>
-          </a>
-          </CardLink>
+            <Button>Start Planning</Button>
         </CardBody>
       </Card>
       </Col>
