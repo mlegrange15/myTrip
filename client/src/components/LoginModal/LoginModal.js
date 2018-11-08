@@ -44,7 +44,7 @@ class LoginModal extends React.Component {
           <ModalHeader toggle={this.toggle}>
             Select your name from the list:{" "}
           </ModalHeader>
-          <Form>
+          <Form className="p-3">
 
             <FormGroup>
               <Label for="exampleSelect">Select</Label>
@@ -92,8 +92,8 @@ class LoginModal extends React.Component {
 
               </Input>
             </FormGroup>
-            <Button>Submit</Button>
-            <Button color="secondary" onClick={this.toggle}>
+            <Button className="btn-sm mr-3">Submit</Button>
+            <Button className="btn-sm" color="secondary" onClick={this.toggle}>
               Cancel
             </Button>
           </Form>
