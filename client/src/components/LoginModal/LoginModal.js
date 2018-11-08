@@ -47,13 +47,49 @@ class LoginModal extends React.Component {
           <Form className="p-3">
 
             <FormGroup>
-              <Label for="userLogin">Select</Label>
-              <Input type="select" name="users" id="users">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <Label for="exampleSelect">Select</Label>
+              <Input type="select" name="select" id="exampleSelect">
+                <option></option>
+                <option>DavidElutilo</option>
+                <option>BrianHong</option>
+                <option>Arnab</option>
+                <option>DanCarstensen</option>
+                <option>DanPotts</option>
+                <option>Cbo</option>
+                <option>Carlos</option>
+                <option>Brittanie</option>                
+                <option>Andrei</option>
+                <option>AdamBilsky</option>
+                <option>Don</option>
+                <option>Duane</option>
+                <option>Eric</option>
+                <option>Jackson</option>
+                <option>Joe</option>
+                <option>JosephPerkins</option>
+                <option>Josh</option>
+                <option>Juana</option>
+                <option>Julie</option>
+                <option>Justin</option>
+                <option>KevinErman</option>
+                <option>Krista</option>
+                <option>Mandy</option>
+                <option>Maryia</option>
+                <option>MichaelLegrange</option>
+                <option>Ollie</option>
+                <option>Otho</option>
+                <option>PatCorcoran</option>
+                <option>Q</option>
+                <option>Rigo</option>
+                <option>Rion</option>
+                <option>Rogelio</option>
+                <option>Ron</option>
+                <option>Samira</option>
+                <option>Tad</option>
+                <option>Tom</option>
+                <option>Torrence</option>
+                <option>UlasD</option>
+                <option>Will</option>
+
               </Input>
             </FormGroup>
             <Button className="btn-sm mr-3">Submit</Button>
