@@ -15,15 +15,14 @@ import "./Planner.css";
 import { goToAnchor } from 'react-scrollable-anchor';
 import ScrollableAnchor from 'react-scrollable-anchor'
 
+import { Link } from "react-router-dom";
 
 class Planner extends Component {
   state = {};
 
-  render() {
-
+  render() {    
     const video = this.props.videos[0];
-    console.log(video[this.props.categoryname]);
-
+    if (!this.props.category) return null;
     return (
 
       <Row className="mt-3">
@@ -34,10 +33,13 @@ class Planner extends Component {
               // width="50%"
               height="300px"
              // Michael please grab the image from the DestinationsSchema, otherwise its hardcoded
-              src="https://thetravelguideonline.com/wp-content/uploads/2017/11/TTG-308.jpg"
+              src={this.props.images}
               alt="Card image cap"
             />
-            <Button onClick={e => this.props.handleBooking(e)} color="primary">
+            <Button
+              onClick={e => this.props.handleBooking(e, this.props)}
+              color="primary"
+            >
               Book This Trip
             </Button>
             <ScrollableAnchor id={'sectionThree'}>

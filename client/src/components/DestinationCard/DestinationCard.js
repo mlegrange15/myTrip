@@ -1,26 +1,29 @@
 import React from "react";
 import {
-    Card,
-    CardImg,
-    CardText,
-    CardBody,
-    CardLink,
-    CardTitle,
-    Button,
-    Col
-  } from "reactstrap";
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardLink,
+  CardTitle,
+  Button,
+  Col
+} from "reactstrap";
 
+import { Link } from "react-router-dom";
 
-
-const DestinationCard = (props) => {
-    return(
-        <Col sm="4">
-        <Card className="mb-3" onClick={(e) => props.handleDestinationClick(e,props)}> 
+const DestinationCard = props => {
+  return (
+    <Col sm="4">
+      <Card
+        className="mb-3"
+        onClick={e => props.handleDestinationClick(e, props)}
+      >
         <CardImg
           // width="100%"
           height="150px"
           src={props.images}
-          alt="Card image cap"  
+          alt="Card image cap"
         />
         <CardBody>
           <CardTitle>{props.name}</CardTitle>
@@ -28,9 +31,8 @@ const DestinationCard = (props) => {
             <Button>Start Planning</Button>
         </CardBody>
       </Card>
-      </Col>
-    )
-  }
+    </Col>
+  );
+};
 
-  export default DestinationCard;
-
+export default DestinationCard;

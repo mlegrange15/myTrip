@@ -12,6 +12,11 @@ class Main extends Component {
     category: null,
   };
 
+  componentDidMount () {
+    this.props.updateSelected(this.props.match.params.city)
+
+  };
+
   handleCategoryClick = category => {
     this.setState({ category: category }, () => {
       console.log('go to section three')
@@ -24,7 +29,7 @@ class Main extends Component {
   };
 
   render() {
-    console.log(this.props.selected);
+    if (!this.props.selected) return null
     return (
       <Container>
 
@@ -32,7 +37,7 @@ class Main extends Component {
           <div>
             <TripCategories
               handleCategoryClick={this.handleCategoryClick}
-              city={this.props.city}
+              city={this.props.selected.name}
               hotels="hotels"
               events="events"
               food="food"
@@ -40,22 +45,20 @@ class Main extends Component {
             />
           </div>
         </ScrollableAnchor>
-        {this.state.category && (
              
           <Planner
             category={this.props.selected[this.state.category]}
             categoryname={this.state.category}
             images={this.props.selected.images}
-            videos={this.props.videos}
-            city={this.props.city}
+            videos={this.props.selected.videos}
+            city={this.props.selected.name}
             notes={this.props.notes}
             handleNoteAdd={this.props.handleNoteAdd}
             handleNoteRemove={this.props.handleNoteRemove}
             handleBooking={this.props.handleBooking}
+            history={this.props.history}
+            match={this.props.match}
           />
-        )}
-{/* <ScrollableAnchor id={'sectionThree'}>
-</ScrollableAnchor> */}
       </Container>
     );
   }

@@ -11,6 +11,8 @@ import {
 class Destinations extends Component {
 
   render() {
+    console.log(this.props);
+    
     if (!this.props.destinations) return null;
     return (
       <Jumbotron className="bg-dark" fluid>
@@ -33,6 +35,8 @@ class Destinations extends Component {
                     key={d._id}
                     id={d._id}
                     handleDestinationClick={this.props.handleDestinationClick}
+                    history={this.props.history}
+                    match={this.props.match}
                   />
               );
             })}

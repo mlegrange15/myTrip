@@ -15,7 +15,9 @@ import Notepad from "../Notepad";
 
 class Booking extends Component {
   state = {};
-  render() {    
+  render() {        
+    console.log(this.props);
+    
     return (
       <Container>
         <Row className="mt-3">
@@ -25,16 +27,17 @@ class Booking extends Component {
                 top
                 width="100%"
                 height="300px"
-                src="https://thetravelguideonline.com/wp-content/uploads/2017/11/TTG-308.jpg"
+                src={this.props.selected.images}
                 alt="Card image cap"
               />
               <CardBody>
                 <CardTitle>
-                  {/* {this.props.city} {this.props.categoryname} */}
                 </CardTitle>
                 <CardText>Click on the images you like below.</CardText>
                 <Row>
-                  <Itinerary />
+                  <Itinerary
+                  city={this.props.selected.name}
+                   />
                 </Row>
               </CardBody>
             </Card>
