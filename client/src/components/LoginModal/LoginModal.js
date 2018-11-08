@@ -49,7 +49,7 @@ class LoginModal extends React.Component {
             <FormGroup>
               <Label for="exampleSelect">Select</Label>
               <Input type="select" name="select" id="exampleSelect">
-                <option></option>
+                <option>-</option>
                 <option>DavidElutilo</option>
                 <option>BrianHong</option>
                 <option>Arnab</option>
