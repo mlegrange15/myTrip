@@ -122,6 +122,23 @@ class App extends Component {
     console.log(this.state.user);
   };
 
+  handleQuickTrip = (e, props) => {
+    e.preventDefault();
+    console.log(props);
+    
+    let randomArray = [];
+    this.state.destinations.map(destination => {
+      return randomArray.push(destination.name)
+    });
+    var randomCity = randomArray[Math.floor(Math.random()*randomArray.length)];
+
+    this.setState({
+      selected: randomCity,
+      booking: true
+    });
+    props.history.push("/book/quicktrip");
+  };
+
   render() {
     if (!this.state.destinations || !this.state.destinationsHash) return null;
     return (
@@ -131,7 +148,13 @@ class App extends Component {
             path="/"
             render={({ history, match }) => (
               <div>
-                <AppNavbar handleUserLoginChange={this.handleUserLoginChange} />{" "}
+                <AppNavbar
+                  handleUserLoginChange={this.handleUserLoginChange}
+                  handleQuickTrip={this.handleQuickTrip}
+                  selected={this.state.destinationsHash[this.state.selected]}
+                  history={history}
+                  match={match}
+                />{" "}
                 <Destinations
                   destinations={this.state.destinations}
                   handleDestinationClick={this.handleDestinationClick}

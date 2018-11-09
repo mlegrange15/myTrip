@@ -32,8 +32,8 @@ class AppNavbar extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">
-                  <h5>Quick Trip</h5>
+                <NavLink href="#">
+                  <h5 onClick={e => this.props.handleQuickTrip(e, this.props)}>Quick Trip</h5>
                 </NavLink>
               </NavItem>
               <NavItem>

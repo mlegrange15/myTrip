@@ -32,8 +32,8 @@ class Booking extends Component {
               />
               <CardBody>
                 <CardTitle>
+                Let's book {this.props.selected.name}!
                 </CardTitle>
-                <CardText>Click on the images you like below.</CardText>
                 <Row>
                   <Itinerary
                   city={this.props.selected.name}
