@@ -14,7 +14,7 @@ class Destinations extends Component {
     if (!this.props.destinations) return null;
     return (
       <Jumbotron className="bg-dark mt-5" fluid>
-        <Container fluid>
+        <Container >
           <Row className="text-center text-white mb-4">
             <Col>
               <h1 className="display-3">Featured Destinations</h1>
