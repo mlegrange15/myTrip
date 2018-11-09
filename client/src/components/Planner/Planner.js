@@ -25,19 +25,7 @@ class Planner extends Component {
       <Row className="mt-3">
         <Col sm="8">
           <Card className="mb-3">
-            <CardImg
-              top
-              height="300px"
-              src={this.props.images}
-              alt="Card image cap"
-            />
-            <Button
-              onClick={e => this.props.handleBooking(e, this.props)}
-              color="primary"
-            >
-              Book This Trip
-            </Button>
-            <ScrollableAnchor id={'sectionThree'}>
+          <ScrollableAnchor id={'sectionThree'}>
               <div>
                 <CardBody>
                   <CardTitle>
@@ -89,6 +77,10 @@ class Planner extends Component {
             notes={this.props.notes}
             city={this.props.city}
             handleNoteRemove={this.props.handleNoteRemove}
+            handleBooking={this.props.handleBooking}
+            images={this.props.images}
+            history={this.props.history}
+            match={this.props.match}
           />
         </Col>
       </Row>
