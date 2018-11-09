@@ -10,8 +10,6 @@ import API from "./components/utils/API";
 import { goToAnchor } from "react-scrollable-anchor";
 import ScrollableAnchor from "react-scrollable-anchor";
 
-// import uuid from 'uuid';
-
 class App extends Component {
   state = {
     destinations: [],
@@ -19,7 +17,8 @@ class App extends Component {
     // id of selected destination
     selected: null,
     notes: [],
-    booking: false
+    booking: false,
+    user: ""
   };
 
   componentDidMount() {
@@ -41,7 +40,9 @@ class App extends Component {
       .then(res => {
         this.setState({
           notes: res.data.filter(note => {
-            return note.city === this.state.selected;
+            return (
+              note.city === this.state.selected && note.user === this.state.user
+            );
           })
         });
       })
@@ -51,16 +52,16 @@ class App extends Component {
   handleDestinationClick = (e, props, key) => {
     e.preventDefault();
     this.setState({ selected: props.name, booking: false }, () => {
-      //this is the href anchor to scroll down the page
       goToAnchor("sectionOne");
       console.log("here");
     });
-    let notes = [];
     API.getNotes({})
       .then(res => {
         this.setState({
           notes: res.data.filter(note => {
-            return note.city === this.state.selected;
+            return (
+              note.city === this.state.selected && note.user === this.state.user
+            );
           })
         });
       })
@@ -78,7 +79,8 @@ class App extends Component {
     API.saveNote({
       city: note.city,
       category: note.categoryname,
-      name: note.name
+      name: note.name,
+      user: this.state.user
     })
       .then(res => {
         console.log("NOTE SAVED");
@@ -89,7 +91,6 @@ class App extends Component {
 
   handleNoteRemove = (e, note) => {
     e.preventDefault();
-    console.log(note);
     API.deleteNote(note._id)
       .then(res => {
         console.log("NOTE DELETED");
@@ -114,6 +115,13 @@ class App extends Component {
     });
   };
 
+  handleUserLoginChange = e => {
+    e.preventDefault();
+    let user = e.target.value;
+    this.setState({ user: user });
+    console.log(this.state.user);
+  };
+
   render() {
     if (!this.state.destinations || !this.state.destinationsHash) return null;
     return (
@@ -123,7 +131,7 @@ class App extends Component {
             path="/"
             render={({ history, match }) => (
               <div>
-                <AppNavbar />{" "}
+                <AppNavbar handleUserLoginChange={this.handleUserLoginChange} />{" "}
                 <Destinations
                   destinations={this.state.destinations}
                   handleDestinationClick={this.handleDestinationClick}

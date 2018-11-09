@@ -35,7 +35,7 @@ router.post("/destination", (req, res) => {
 // ** NOTES ** //
 
 // GET api/notes Get all Notes
-router.get("/notes", (req, res) => {
+router.get("/notes", (req, res) => {  
   Note.find({}).then(notes => res.json(notes));
 });
 
@@ -45,7 +45,8 @@ router.post("/notes", (req, res) => {
     _id: req.body._id,
     city: req.body.city,
     category: req.body.category,
-    name: req.body.name
+    name: req.body.name,
+    user: req.body.user
   });
   newNote.save().then(note => res.json(note));
 });

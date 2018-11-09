@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { Container } from "reactstrap";
 import Planner from "../Planner";
 import TripCategories from "../TripCategories";
-import API from "../utils/API";
 import { goToAnchor } from 'react-scrollable-anchor';
 import ScrollableAnchor from 'react-scrollable-anchor'
 

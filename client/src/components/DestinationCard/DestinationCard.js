@@ -4,13 +4,10 @@ import {
   CardImg,
   CardText,
   CardBody,
-  CardLink,
   CardTitle,
   Button,
   Col
 } from "reactstrap";
-
-import { Link } from "react-router-dom";
 
 const DestinationCard = props => {
   return (

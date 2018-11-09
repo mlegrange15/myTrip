@@ -12,10 +12,7 @@ import {
 import Notepad from "../Notepad";
 import PlannerImageCard from "../PlannerImageCard";
 import "./Planner.css";
-import { goToAnchor } from 'react-scrollable-anchor';
 import ScrollableAnchor from 'react-scrollable-anchor'
-
-import { Link } from "react-router-dom";
 
 class Planner extends Component {
   state = {};
@@ -30,9 +27,7 @@ class Planner extends Component {
           <Card className="mb-3">
             <CardImg
               top
-              // width="50%"
               height="300px"
-             // Michael please grab the image from the DestinationsSchema, otherwise its hardcoded
               src={this.props.images}
               alt="Card image cap"
             />

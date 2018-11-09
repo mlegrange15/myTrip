@@ -8,7 +8,6 @@ import {
   ListGroup,
   ListGroupItem,
   Col,
-  Row
 } from "reactstrap";
 
 class Itinerary extends Component {

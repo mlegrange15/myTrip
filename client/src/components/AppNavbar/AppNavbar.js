@@ -8,7 +8,7 @@ import {
   NavItem,
   NavLink
 } from "reactstrap";
-import LoginModal from "../LoginModal"
+import LoginModal from "../LoginModal";
 
 class AppNavbar extends Component {
   state = {
@@ -24,7 +24,7 @@ class AppNavbar extends Component {
   render() {
     return (
       <div>
-        <Navbar className="p-3" fixedTop sticky="top" color="light" light expand="md">
+        <Navbar className="p-3" color="light" light expand="md">
           <NavbarBrand href="/">
             <h1>myTrip</h1>
           </NavbarBrand>
@@ -37,7 +37,9 @@ class AppNavbar extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-              <LoginModal />
+                <LoginModal
+                  handleUserLoginChange={this.props.handleUserLoginChange}
+                />
               </NavItem>
             </Nav>
           </Collapse>

@@ -13,9 +13,9 @@ const NoteSchema = new Schema({
   name: {
     type: String
   },
-  // note: {
-  //   type: String
-  // }
+  user: {
+    type: String
+  }
 });
 
 module.exports = Note = mongoose.model(

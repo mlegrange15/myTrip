@@ -6,16 +6,15 @@ export default {
     return axios.get("/api/destinations");
   },
   //   // Deletes the note with the given id
-    deleteNote: function(id) {
-
-      return axios.delete("/api/notes/" + id);
-    },
+  deleteNote: function(id) {
+    return axios.delete("/api/notes/" + id);
+  },
   // Saves a note to the database
   saveNote: function(noteData) {
     return axios.post("/api/notes", noteData);
   },
   // Gets notes
-  getNotes: function(cityName) {
-    return axios.get("/api/notes", cityName);
+  getNotes: function() {
+    return axios.get("/api/notes");
   }
 };
