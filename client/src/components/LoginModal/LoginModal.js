@@ -104,9 +104,6 @@ class LoginModal extends React.Component {
             >
               Submit
             </Button>
-            <Button className="btn-sm" color="secondary" onClick={this.toggle}>
-              Cancel
-            </Button>
           </Form>
         </Modal>
       </div>

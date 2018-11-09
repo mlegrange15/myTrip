@@ -22,7 +22,7 @@ class AppNavbar extends Component {
   };
 
   render() {
-    console.log(this.props);
+    const user = this.props.user;    
     return (
       <div>
         <Navbar className="p-3 fixed-top" color="light" light expand="md">
@@ -32,9 +32,16 @@ class AppNavbar extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+            {user && (
+              <NavItem className="mr-3 mt-2">
+                <h5>Hello, {this.props.user}</h5>
+              </NavItem>
+            )}
               <NavItem>
                 <NavLink href="#">
-                  <h5 onClick={e => this.props.handleQuickTrip(e, this.props)}>Quick Trip</h5>
+                  <h5 onClick={e => this.props.handleQuickTrip(e, this.props)}>
+                    Quick Trip
+                  </h5>
                 </NavLink>
               </NavItem>
               <NavItem>

@@ -153,6 +153,7 @@ class App extends Component {
                   selected={this.state.destinationsHash[this.state.selected]}
                   history={history}
                   match={match}
+                  user={this.state.user}
                 />{" "}
                 <Destinations
                   destinations={this.state.destinations}
