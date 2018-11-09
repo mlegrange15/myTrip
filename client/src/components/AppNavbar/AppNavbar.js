@@ -33,7 +33,7 @@ class AppNavbar extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="#">
-                  <h5 onClick={e => this.props.handleQuickTrip(e, this.props)}>Quick Trip</h5>
+                  <h5 onClick={e => this.props.handleQuickTrip(e, this.props)}>Surprise me</h5>
                 </NavLink>
               </NavItem>
               <NavItem>

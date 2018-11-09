@@ -27,7 +27,7 @@ class Planner extends Component {
           <Card className="mb-3">
             <CardImg
               top
-              height="300px"
+              height="200px"
               src={this.props.images}
               alt="Card image cap"
             />

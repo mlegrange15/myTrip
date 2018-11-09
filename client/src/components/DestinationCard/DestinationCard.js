@@ -18,7 +18,7 @@ const DestinationCard = props => {
       >
         <CardImg
           // width="100%"
-          height="150px"
+          height="160px"
           src={props.images}
           alt="Card image cap"
         />

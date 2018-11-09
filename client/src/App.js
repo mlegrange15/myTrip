@@ -136,7 +136,10 @@ class App extends Component {
       selected: randomCity,
       booking: true
     });
+    goToAnchor("sectionTwo");
     props.history.push("/book/quicktrip");
+    
+
   };
 
   render() {
