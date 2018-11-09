@@ -17,15 +17,15 @@ const DestinationCard = props => {
         onClick={e => props.handleDestinationClick(e, props)}
       >
         <CardImg
-          // width="100%"
-          height="160px"
+          height="150px"
+          width="0.5rem"
           src={props.images}
           alt="Card image cap"
         />
         <CardBody>
           <CardTitle>{props.name}</CardTitle>
           <CardText>{props.description}</CardText>
-            <Button>Start Planning</Button>
+            <Button className="btn-sm">Start Planning</Button>
         </CardBody>
       </Card>
     </Col>

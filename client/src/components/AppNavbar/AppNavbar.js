@@ -22,6 +22,7 @@ class AppNavbar extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <Navbar className="p-3 fixed-top" color="light" light expand="md">

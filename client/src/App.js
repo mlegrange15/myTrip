@@ -124,22 +124,25 @@ class App extends Component {
 
   handleQuickTrip = (e, props) => {
     e.preventDefault();
-    console.log(props);
-    
     let randomArray = [];
     this.state.destinations.map(destination => {
       return randomArray.push(destination.name)
     });
     var randomCity = randomArray[Math.floor(Math.random()*randomArray.length)];
-
     this.setState({
-      selected: randomCity,
-      booking: true
+      selected: randomCity }, () => {
+        goToAnchor("sectionOne");
     });
+<<<<<<< HEAD
     goToAnchor("sectionTwo");
     props.history.push("/book/quicktrip");
     
 
+=======
+ 
+    props.history.push("/plan/" + randomCity);
+   
+>>>>>>> 15c20febdaa99e196e0ba73213cd37b831b9b381
   };
 
   render() {
@@ -196,6 +199,7 @@ class App extends Component {
                   handleNoteRemove={this.handleNoteRemove}
                   history={history}
                   match={match}
+                  booking={this.state.booking}
                 />
               </div>
             )}

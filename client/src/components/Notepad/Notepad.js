@@ -4,6 +4,7 @@ import {
   CardBody,
   CardText,
   CardTitle,
+  CardImg,
   Button,
   ListGroup,
   ListGroupItem,
@@ -29,8 +30,24 @@ class Notepad extends Component {
   };
 
   render() {
+    const booking = this.props.booking;
     return (
       <div>
+        <Card className="mb-3">
+          <CardImg
+            top
+            src={this.props.images}
+            alt="Card image cap"
+          />
+          {!booking && (
+            <Button
+            onClick={e => this.props.handleBooking(e, this.props)}
+            color="primary"
+          >
+            Book This Trip
+          </Button>
+          )}
+        </Card>
         <Card className="bg-dark mb-3">
           <CardBody>
             <CardTitle className="text-white">Daily Planner </CardTitle>

@@ -15,29 +15,18 @@ import Notepad from "../Notepad";
 
 class Booking extends Component {
   state = {};
-  render() {        
+  render() {
     console.log(this.props);
-    
+
     return (
       <Container>
         <Row className="mt-3">
           <Col sm="8">
             <Card className="mb-3">
-              <CardImg
-                top
-                width="100%"
-                height="300px"
-                src={this.props.selected.images}
-                alt="Card image cap"
-              />
               <CardBody>
-                <CardTitle>
-                Let's book {this.props.selected.name}!
-                </CardTitle>
+                <CardTitle>Let's book {this.props.selected.name}!</CardTitle>
                 <Row>
-                  <Itinerary
-                  city={this.props.selected.name}
-                   />
+                  <Itinerary city={this.props.selected.name} />
                 </Row>
               </CardBody>
             </Card>
@@ -47,6 +36,10 @@ class Booking extends Component {
               notes={this.props.notes}
               city={this.props.city}
               handleNoteRemove={this.props.handleNoteRemove}
+              images={this.props.selected.images}
+              history={this.props.history}
+              match={this.props.match}
+              booking={this.props.booking}
             />
           </Col>
         </Row>

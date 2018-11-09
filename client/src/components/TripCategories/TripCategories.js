@@ -19,11 +19,9 @@ class TripCategories extends Component {
   render() {
     return (
       <Row className="p-3 mb-2 text-align-center">
-        <Row>
-          <Col className="p-3" sm="12">
+        <Col className="mb-3" sm="12">
             <h1>What would you like to explore in {this.props.city}?</h1>
-          </Col>
-        </Row>
+        </Col>
         <Row>
             <Col sm="3">
               <Button
