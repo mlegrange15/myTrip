@@ -13,7 +13,7 @@ class Destinations extends Component {
   render() {    
     if (!this.props.destinations) return null;
     return (
-      <Jumbotron className="bg-dark" fluid>
+      <Jumbotron className="bg-dark mt-5" fluid>
         <Container fluid>
           <Row className="text-center text-white mb-4">
             <Col>
