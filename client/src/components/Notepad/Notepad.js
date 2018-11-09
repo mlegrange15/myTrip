@@ -62,22 +62,22 @@ class Notepad extends Component {
                   name="select"
                   id="dailyPlannerSelect"
                 >
-                  <option>0</option>
+                  <option>select # of days below</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
+                  {/* <option value="6">6</option> */}
+                  {/* <option value="7">7</option> */}
+                  {/* <option value="8">8</option>
                   <option value="9">9</option>
-                  <option value="10">10</option>
+                  <option value="10">10</option> */}
                 </Input>
               </FormGroup>
             </Form>
             <CardText className="text-white">
-              Drag and drop activities below{" "}
+              {/* Drag and drop activities below{" "} */}
             </CardText>
             <ListGroup>
               {this.state.totalDays.map((day, i) => {
