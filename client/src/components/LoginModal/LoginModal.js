@@ -64,7 +64,7 @@ class LoginModal extends React.Component {
                 id="user"
               >
                 <option value="">Select your name from the list</option>
-                <option value="DavidElutilo">Dartaniel</option>
+                <option value="Dartaniel">Dartaniel</option>
                 <option value="DavidElutilo">DavidElutilo</option>
                 <option value="BrianHong">BrianHong</option>
                 <option value="Arnab">Arnab</option>
@@ -89,7 +89,7 @@ class LoginModal extends React.Component {
                 <option value="Krista">Krista</option>
                 <option value="Mandy">Mandy</option>
                 <option value="Maryia">Maryia</option>
-                <option value="MichaelLegrange">MichaelLegrange</option>
+                <option value="Michael">Michael</option>
                 <option value="Ollie">Ollie</option>
                 <option value="Otho">Otho</option>
                 <option value="PatCorcoran">PatCorcoran</option>
