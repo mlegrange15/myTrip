@@ -64,6 +64,7 @@ class LoginModal extends React.Component {
                 id="user"
               >
                 <option value="">Select your name from the list</option>
+                <option value="DavidElutilo">Dartaniel</option>
                 <option value="DavidElutilo">DavidElutilo</option>
                 <option value="BrianHong">BrianHong</option>
                 <option value="Arnab">Arnab</option>
