@@ -7,7 +7,7 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
+  Input
 } from "reactstrap";
 
 class LoginModal extends React.Component {
@@ -33,12 +33,19 @@ class LoginModal extends React.Component {
   };
 
   render() {
+    const user = this.props.user;
     return (
       <div>
-        <NavLink href="#">
-          <h5 onClick={this.toggle}>Login</h5>
-        </NavLink>
-
+        {!user && (
+          <NavLink href="#">
+            <h5 onClick={this.toggle}>Login</h5>
+          </NavLink>
+        )}
+        {user && (
+          <NavLink href="#">
+            <p onClick={this.toggle}><i>Not {user}?</i></p>
+          </NavLink>
+        )}
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}

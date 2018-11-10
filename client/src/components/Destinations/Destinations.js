@@ -15,12 +15,12 @@ class Destinations extends Component {
     return (
       <Jumbotron className="bg-dark mt-5" fluid>
         <Container>
-          <Row className="text-center text-white mb-4">
+          <Row className="text-center text-white mt-3 mb-4">
             <Col>
-              <h1 className="display-3">Featured Destinations</h1>
-              <p className="lead">
+              <h2 className="display-3">Featured Destinations</h2>
+              <h3 id="p">
                 Click on a destination below to begin planning your trip!
-              </p>
+              </h3>
             </Col>
           </Row>
           <Row>          
