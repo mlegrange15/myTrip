@@ -48,7 +48,7 @@ class Notepad extends Component {
           </Button>
           )}
         </Card>
-        <Card className="bg-dark mb-3">
+        <Card className="bg-secondary mb-3">
           <CardBody>
             <CardTitle className="text-white">Daily Planner </CardTitle>
             <Form className="mb-3">
@@ -89,8 +89,8 @@ class Notepad extends Component {
             <CardTitle className="text-white">
               {this.props.city} Trip Notepad
             </CardTitle>
-            <CardText className="text-white">
-              You're favorites and trip notes go here.
+            <CardText className="text-light">
+              Your favorites and trip notes go here.
             </CardText>
             <ListGroup>
               {this.props.notes.map((note, i) => {
