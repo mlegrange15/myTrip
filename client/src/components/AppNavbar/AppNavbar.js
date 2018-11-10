@@ -45,6 +45,7 @@ class AppNavbar extends Component {
               <NavItem>
                 <LoginModal
                   handleUserLoginChange={this.props.handleUserLoginChange}
+                  user={this.props.user}
                 />
               </NavItem>
             </Nav>

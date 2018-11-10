@@ -6,6 +6,7 @@ import AppNavbar from "./components/AppNavbar";
 import Destinations from "./components/Destinations";
 import Main from "./components/Main";
 import Booking from "./components/Booking";
+import Footer from "./components/Footer";
 import API from "./components/utils/API";
 import { goToAnchor } from "react-scrollable-anchor";
 import ScrollableAnchor from "react-scrollable-anchor";
@@ -198,6 +199,7 @@ class App extends Component {
               </div>
             )}
           />
+<Footer />
         </div>
       </Router>
     );
