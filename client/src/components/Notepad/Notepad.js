@@ -42,7 +42,7 @@ class Notepad extends Component {
           {!booking && (
             <Button
             onClick={e => this.props.handleBooking(e, this.props)}
-            color="primary"
+            color="success"
           >
             Book This Trip
           </Button>
