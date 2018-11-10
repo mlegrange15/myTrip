@@ -18,9 +18,9 @@ class Destinations extends Component {
           <Row className="text-center text-white mt-3 mb-4">
             <Col>
               <h2 className="display-3">Featured Destinations</h2>
-              <h3 id="p">
+              <h4 id="p">
                 Click on a destination below to begin planning your trip!
-              </h3>
+              </h4>
             </Col>
           </Row>
           <Row>          
