@@ -45,18 +45,18 @@ class LoginModal extends React.Component {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>
-            Select your name from the list:{" "}
+            Login to myTrip:{" "}
           </ModalHeader>
           <Form className="p-3">
             <FormGroup>
-              <Label for="userLogin">Select</Label>
+              {/* <Label for="userLogin">Select</Label> */}
               <Input
                 onChange={this.props.handleUserLoginChange}
                 type="select"
                 name="user"
                 id="user"
               >
-                <option />
+                <option value="">Select your name from the list</option>
                 <option value="DavidElutilo">DavidElutilo</option>
                 <option value="BrianHong">BrianHong</option>
                 <option value="Arnab">Arnab</option>
@@ -99,7 +99,7 @@ class LoginModal extends React.Component {
               </Input>
             </FormGroup>
             <Button
-              className="btn-sm mr-3"
+              className="btn-sm btn-success mr-3"
               onClick={e => this.handleLogin(e)}
             >
               Submit
