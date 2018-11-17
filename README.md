@@ -2,7 +2,7 @@
 
 ## Overview: 
 
-This is a full stack MERN application with that allows a user to plan the trip of their dreams. The traditional online booking site is cluttered with information and focuses more on actual booking. This app will help you plan and decide what it is that you actually want to do or where you want to stay based on real user content. We will give you all the information you need from real travelers to help you book the perfect trip for you.  
+This is a full stack MERN application that allows a user to plan the trip of their dreams. The traditional online booking site is cluttered with information and focuses more on actual booking. This app will help you plan and decide what it is that you actually want to do or where you want to stay based on real user content. We will give you all the information you need from real travelers to help you book the perfect trip for you.  
 
 ## Screenshot:
 

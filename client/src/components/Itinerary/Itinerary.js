@@ -79,9 +79,6 @@ class Itinerary extends Component {
                 >
                   √
                 </Button>
-                <Button className="btn-sm btn-secondary float-right ml-3">
-                  Skip
-                </Button>
                 <Button
                   onClick={this.handleBookButtonFlight}
                   color="primary"
@@ -100,9 +97,6 @@ class Itinerary extends Component {
                 >
                   √
                 </Button>
-                <Button className="btn-sm btn-secondary float-right ml-3">
-                  Skip
-                </Button>
                 <Button
                   onClick={this.handleBookButtonHotel}
                   color="primary"
@@ -120,9 +114,6 @@ class Itinerary extends Component {
                 >
                   √
                 </Button>
-                <Button className="btn-sm btn-secondary float-right ml-3">
-                  Skip
-                </Button>
                 <Button
                   onClick={this.handleBookButtonCar}
                   color="primary"
@@ -139,9 +130,6 @@ class Itinerary extends Component {
                   className="btn-sm float-right ml-3"
                 >
                   √
-                </Button>
-                <Button className="btn-sm btn-secondary float-right ml-3">
-                  Skip
                 </Button>
                 <Button
                   onClick={this.handleBookButtonActivities}
